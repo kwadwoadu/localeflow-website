@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Partner Program | LocaleFlow" description="Join the LocaleFlow partner program. Help your clients go global and earn 20-30% revenue share on every referral.">
+  <Header variant="partners" />
+
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="section bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-primary-600 font-medium mb-4">Partner Program</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Help your clients go global<br />
+          <span class="text-primary-600">and get paid for it</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          LocaleFlow automatically translates and syncs Shopify stores. Join our partner program for 20-30% revenue share on every referral.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#partner-form" class="btn-primary text-lg px-8 py-4">Become a Partner</a>
+          <a href="#benefits" class="btn-secondary text-lg px-8 py-4">See Benefits</a>
+        </div>
+        <p class="mt-8 text-gray-500">Trusted by 50+ Shopify agencies worldwide</p>
+      </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sound familiar?</h2>
+          <p class="text-xl text-gray-600">The translation problems your clients face</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="flex gap-4 p-6 bg-red-50 rounded-xl">
+            <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Translations fall out of sync</h3>
+              <p class="text-gray-600">Every product update means manual translation updates across all languages.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-red-50 rounded-xl">
+            <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Clients change products constantly</h3>
+              <p class="text-gray-600">New collections, updated descriptions, seasonal content - it never stops.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-red-50 rounded-xl">
+            <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Manual translation is time-consuming</h3>
+              <p class="text-gray-600">Hours spent coordinating translators, managing spreadsheets, and QA-ing content.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-6 bg-red-50 rounded-xl">
+            <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">You don't want to quote that work</h3>
+              <p class="text-gray-600">Translation maintenance isn't high-value agency work. But someone has to do it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section class="section bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The solution: Set it and forget it</h2>
+          <p class="text-xl text-gray-600">LocaleFlow handles translations automatically</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Auto-sync on changes</h3>
+            <p class="text-gray-600 text-sm">Content updates trigger automatic translations. No manual intervention needed.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Full control</h3>
+            <p class="text-gray-600 text-sm">Custom terms, blacklists, and prompts give you precise control over output.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Everything covered</h3>
+            <p class="text-gray-600 text-sm">Products, pages, menus, metafields, metaobjects - all translated and synced.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Set and forget</h3>
+            <p class="text-gray-600 text-sm">Install once, configure once. Then let it run in the background forever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner Benefits Section -->
+    <section id="benefits" class="section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Partner benefits</h2>
+          <p class="text-xl text-gray-600">Why agencies love partnering with LocaleFlow</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">20-30% revenue share</h3>
+            <p class="text-gray-600">Earn recurring commission on every client you refer. Paid monthly, no caps.</p>
+          </div>
+
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Free test account</h3>
+            <p class="text-gray-600">Get a full-featured account for your team to learn and demo the product.</p>
+          </div>
+
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Priority support</h3>
+            <p class="text-gray-600">Jump the queue with dedicated partner support. We've got your back.</p>
+          </div>
+
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Co-marketing opportunities</h3>
+            <p class="text-gray-600">Joint case studies, webinars, and content to grow together.</p>
+          </div>
+
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Partner badge & listing</h3>
+            <p class="text-gray-600">Get listed in our partner directory and display your partner status.</p>
+          </div>
+
+          <div class="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Training & resources</h3>
+            <p class="text-gray-600">Sales materials, training docs, and onboarding support for your team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How it works</h2>
+          <p class="text-xl text-gray-600">Four simple steps to start earning</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Sign up as partner</h3>
+            <p class="text-gray-600 text-sm">Fill out the form below. It's free and takes 2 minutes.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Get your referral link</h3>
+            <p class="text-gray-600 text-sm">We'll send you a unique tracking link and partner materials.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Recommend to clients</h3>
+            <p class="text-gray-600 text-sm">Share with clients who need multi-language Shopify stores.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Earn on every subscription</h3>
+            <p class="text-gray-600 text-sm">Get 20-30% of their subscription for as long as they're a customer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+        </div>
+
+        <div class="space-y-6">
+          <details class="group border border-gray-200 rounded-lg p-6">
+            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
+              How does tracking work?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">You get a unique referral link that tracks all clicks and signups. We use first-click attribution with a 90-day cookie window. You can see all your referrals and earnings in your partner dashboard.</p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-6">
+            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
+              When do I get paid?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">Commissions are paid monthly via PayPal or bank transfer. Payments go out on the 15th of each month for the previous month's earnings. Minimum payout is $50.</p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-6">
+            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
+              What if a client cancels?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">You earn commission for as long as the client stays subscribed. If they cancel, your commission for that client stops - but there are no clawbacks on already-paid commissions.</p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-6">
+            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
+              Is there a minimum requirement?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">No minimum referrals required. Whether you refer one client or a hundred, you'll earn commissions. However, higher-tier partners (5+ active referrals) get bumped to 30% commission.</p>
+          </details>
+
+          <details class="group border border-gray-200 rounded-lg p-6">
+            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
+              Can I install LocaleFlow for my clients?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">Absolutely! Many partners install and configure LocaleFlow as part of their service offering. You can charge clients for setup and still earn your partner commission on the subscription.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner Signup Form Section -->
+    <section id="partner-form" class="section bg-primary-600">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Become a partner</h2>
+          <p class="text-xl text-primary-100">Join the LocaleFlow partner program today</p>
+        </div>
+
+        <form
+          action="https://formspree.io/f/FORM_ID"
+          method="POST"
+          class="bg-white rounded-2xl p-8 shadow-xl"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                placeholder="John Smith"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                placeholder="john@agency.com"
+              />
+            </div>
+
+            <div>
+              <label for="agency" class="block text-sm font-medium text-gray-700 mb-2">Agency name *</label>
+              <input
+                type="text"
+                id="agency"
+                name="agency"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                placeholder="Awesome Agency"
+              />
+            </div>
+
+            <div>
+              <label for="website" class="block text-sm font-medium text-gray-700 mb-2">Agency website *</label>
+              <input
+                type="url"
+                id="website"
+                name="website"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                placeholder="https://agency.com"
+              />
+            </div>
+
+            <div>
+              <label for="shopify_partner" class="block text-sm font-medium text-gray-700 mb-2">Shopify Partner?</label>
+              <select
+                id="shopify_partner"
+                name="shopify_partner"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              >
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="plus">Shopify Plus Partner</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="clients" class="block text-sm font-medium text-gray-700 mb-2">Shopify clients</label>
+              <select
+                id="clients"
+                name="clients"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              >
+                <option value="">Select...</option>
+                <option value="1-5">1-5 clients</option>
+                <option value="6-20">6-20 clients</option>
+                <option value="21-50">21-50 clients</option>
+                <option value="50+">50+ clients</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label for="markets" class="block text-sm font-medium text-gray-700 mb-2">Primary markets served</label>
+            <input
+              type="text"
+              id="markets"
+              name="markets"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              placeholder="e.g., EU, US, APAC"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full mt-8 btn-primary text-lg py-4"
+          >
+            Apply to Partner Program
+          </button>
+
+          <p class="text-center text-gray-500 text-sm mt-4">
+            We'll review your application and get back to you within 48 hours.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

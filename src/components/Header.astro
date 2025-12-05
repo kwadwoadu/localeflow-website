@@ -1,0 +1,39 @@
+---
+interface Props {
+  variant?: 'default' | 'partners';
+}
+
+const { variant = 'default' } = Astro.props;
+const isPartners = variant === 'partners';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2">
+        <svg class="w-8 h-8 text-primary-600" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="currentColor"/>
+          <path d="M8 12h16M8 16h12M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="22" cy="20" r="4" fill="white"/>
+        </svg>
+        <span class="text-xl font-semibold text-gray-900">LocaleFlow</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/#features" class="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
+        <a href="/#how-it-works" class="text-gray-600 hover:text-gray-900 transition-colors">How it Works</a>
+        <a href="/partners" class="text-gray-600 hover:text-gray-900 transition-colors">Partners</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        {isPartners ? (
+          <a href="#partner-form" class="btn-primary">Become a Partner</a>
+        ) : (
+          <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary">
+            Install App
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</header>
