@@ -4,36 +4,113 @@ interface Props {
 }
 
 const { variant = 'default' } = Astro.props;
-const isPartners = variant === 'partners';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2">
-        <svg class="w-8 h-8 text-primary-600" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="currentColor"/>
-          <path d="M8 12h16M8 16h12M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="22" cy="20" r="4" fill="white"/>
-        </svg>
-        <span class="text-xl font-semibold text-gray-900">LocaleFlow</span>
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/20 group-hover:shadow-xl group-hover:shadow-primary-500/30 transition-all duration-300">
+          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+        </div>
+        <span class="font-display font-bold text-xl text-gray-900">LocaleFlow</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="/#features" class="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-        <a href="/#how-it-works" class="text-gray-600 hover:text-gray-900 transition-colors">How it Works</a>
-        <a href="/partners" class="text-gray-600 hover:text-gray-900 transition-colors">Partners</a>
-      </nav>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="/#features" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
+          Features
+        </a>
+        <a href="/#how-it-works" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
+          How It Works
+        </a>
+        <a href="/partners" class={`px-4 py-2 font-medium rounded-lg transition-all duration-200 ${variant === 'partners' ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50'}`}>
+          Partners
+        </a>
+      </div>
 
-      <div class="flex items-center gap-4">
-        {isPartners ? (
-          <a href="#partner-form" class="btn-primary">Become a Partner</a>
-        ) : (
-          <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary">
-            Install App
+      <!-- CTA Buttons -->
+      <div class="hidden md:flex items-center gap-3">
+        {variant === 'partners' ? (
+          <a href="#partner-form" class="btn-primary">
+            Become a Partner
           </a>
+        ) : (
+          <>
+            <a href="/partners" class="btn-ghost text-sm">
+              Partner Program
+            </a>
+            <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary">
+              Get Started Free
+            </a>
+          </>
         )}
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6 menu-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 menu-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
-  </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden pb-6">
+      <div class="flex flex-col gap-2 pt-4 border-t border-gray-100">
+        <a href="/#features" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
+          Features
+        </a>
+        <a href="/#how-it-works" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
+          How It Works
+        </a>
+        <a href="/partners" class={`px-4 py-3 font-medium rounded-lg transition-all ${variant === 'partners' ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50'}`}>
+          Partners
+        </a>
+        <div class="pt-4 mt-2 border-t border-gray-100">
+          {variant === 'partners' ? (
+            <a href="#partner-form" class="btn-primary w-full justify-center">
+              Become a Partner
+            </a>
+          ) : (
+            <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary w-full justify-center">
+              Get Started Free
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuOpen = menuButton?.querySelector('.menu-open');
+  const menuClose = menuButton?.querySelector('.menu-close');
+
+  menuButton?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden');
+    menuOpen?.classList.toggle('hidden');
+    menuClose?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+    });
+  });
+</script>

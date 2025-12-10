@@ -2,105 +2,157 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { FAQ } from '../components/FAQ';
+
+const faqItems = [
+  {
+    question: "What languages do you support?",
+    answer: "We support 100+ languages including all major European, Asian, and Middle Eastern languages. If Shopify supports it as a market, we can translate to it."
+  },
+  {
+    question: "How does automatic sync work?",
+    answer: "When you update a product, page, or any content in Shopify, LocaleFlow automatically detects the change and updates the translations within minutes. No manual intervention needed."
+  },
+  {
+    question: "Can I review translations before they go live?",
+    answer: "Yes! You can enable review mode to approve translations before they go live. Or let them publish automatically - it's your choice."
+  },
+  {
+    question: "What's the difference between LocaleFlow and other translation apps?",
+    answer: "LocaleFlow automatically syncs when your content changes - that's the key difference. We also offer more control with custom terms, blacklists, and field-level translation settings."
+  },
+  {
+    question: "Is there a free plan?",
+    answer: "Yes! We offer a free plan for small stores to get started. Paid plans unlock more languages, higher limits, and priority sync."
+  }
+];
 ---
 
 <BaseLayout title="LocaleFlow | Automatic Shopify Translations" description="Automatic Shopify translations that sync when your content changes. Go global without the hassle.">
   <Header />
 
-  <main class="pt-16">
+  <main class="pt-20">
     <!-- Hero Section -->
-    <section class="section bg-gradient-to-b from-primary-50 to-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Translate your Shopify store.<br />
-            <span class="text-primary-600">Automatically.</span>
-          </h1>
-          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            LocaleFlow keeps your translations in sync when content changes. Products, pages, menus - all translated and updated automatically.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
-              Install on Shopify
-            </a>
-            <a href="#how-it-works" class="btn-secondary text-lg px-8 py-4">
-              See How It Works
-            </a>
+    <section class="relative overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+      <!-- Decorative blobs -->
+      <div class="absolute top-0 -left-4 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div class="absolute top-0 -right-4 w-72 h-72 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+
+      <div class="relative section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 reveal">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Automatic sync when content changes
+            </div>
+
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight reveal">
+              Translate your Shopify store.
+              <span class="text-gradient">Automatically.</span>
+            </h1>
+
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed reveal">
+              LocaleFlow keeps your translations in sync when content changes. Products, pages, menus — all translated and updated without lifting a finger.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+              <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
+                Get Started Free
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a href="#how-it-works" class="btn-secondary text-lg px-8 py-4">
+                See How It Works
+              </a>
+            </div>
+
+            <p class="mt-8 text-gray-400 text-sm reveal">Free plan available. No credit card required.</p>
           </div>
-          <p class="mt-8 text-gray-500">Free plan available. No credit card required.</p>
         </div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section">
+    <section id="features" class="section bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Everything you need to go global</h2>
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Everything you need to go global
+          </h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Stop managing translations manually. LocaleFlow handles the complexity so you can focus on growing your business.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+          <!-- Feature 1 -->
+          <div class="card p-8 reveal stagger-1">
+            <div class="icon-container bg-primary-100 mb-5">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Auto-sync translations</h3>
-            <p class="text-gray-600">Update a product? Translations update automatically. No manual work, no falling out of sync.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Auto-sync translations</h3>
+            <p class="text-gray-600 leading-relaxed">Update a product? Translations update automatically. No manual work, no falling out of sync.</p>
           </div>
 
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Feature 2 -->
+          <div class="card p-8 reveal stagger-2">
+            <div class="icon-container bg-accent-100 mb-5">
+              <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Translate everything</h3>
-            <p class="text-gray-600">Products, collections, pages, blogs, menus, metafields, and metaobjects. We've got it all covered.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Translate everything</h3>
+            <p class="text-gray-600 leading-relaxed">Products, collections, pages, blogs, menus, metafields, and metaobjects. We've got it all covered.</p>
           </div>
 
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Feature 3 -->
+          <div class="card p-8 reveal stagger-3">
+            <div class="icon-container bg-green-100 mb-5">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Full control</h3>
-            <p class="text-gray-600">Custom term translations, blacklists, and prompts give you precise control over the output.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Full control</h3>
+            <p class="text-gray-600 leading-relaxed">Custom term translations, blacklists, and prompts give you precise control over the output.</p>
           </div>
 
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Feature 4 -->
+          <div class="card p-8 reveal stagger-4">
+            <div class="icon-container bg-blue-100 mb-5">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Field-level precision</h3>
-            <p class="text-gray-600">Choose exactly which fields to translate in each resource type. Keep product codes untranslated.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Field-level precision</h3>
+            <p class="text-gray-600 leading-relaxed">Choose exactly which fields to translate in each resource type. Keep product codes untranslated.</p>
           </div>
 
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Feature 5 -->
+          <div class="card p-8 reveal stagger-5">
+            <div class="icon-container bg-yellow-100 mb-5">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Price list support</h3>
-            <p class="text-gray-600">Automatic pretty pricing with rounding rules for different markets and currencies.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Price list support</h3>
+            <p class="text-gray-600 leading-relaxed">Automatic pretty pricing with rounding rules for different markets and currencies.</p>
           </div>
 
-          <div class="p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Feature 6 -->
+          <div class="card p-8 reveal stagger-6">
+            <div class="icon-container bg-pink-100 mb-5">
+              <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">AI-powered quality</h3>
-            <p class="text-gray-600">State-of-the-art AI translation that understands context, brand voice, and e-commerce terminology.</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">AI-powered quality</h3>
+            <p class="text-gray-600 leading-relaxed">Smart AI translation that understands context, brand voice, and e-commerce terminology.</p>
           </div>
         </div>
       </div>
@@ -109,75 +161,94 @@ import Footer from '../components/Footer.astro';
     <!-- How It Works Section -->
     <section id="how-it-works" class="section bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Set up in minutes, not days</h2>
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Set up in minutes, not days
+          </h2>
           <p class="text-xl text-gray-600">Three simple steps to a multi-language store</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold">1</div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Install & connect</h3>
-            <p class="text-gray-600">Install LocaleFlow from the Shopify App Store. Connect in one click - no complex setup required.</p>
+        <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          <!-- Step 1 -->
+          <div class="text-center reveal stagger-1">
+            <div class="relative">
+              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+                1
+              </div>
+              <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-transparent"></div>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Install & connect</h3>
+            <p class="text-gray-600">Install LocaleFlow from the Shopify App Store. Connect in one click — no complex setup required.</p>
           </div>
 
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold">2</div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Choose languages</h3>
+          <!-- Step 2 -->
+          <div class="text-center reveal stagger-2">
+            <div class="relative">
+              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+                2
+              </div>
+              <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-transparent"></div>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Choose languages</h3>
             <p class="text-gray-600">Select your target languages and configure any custom terms or blacklists. We support 100+ languages.</p>
           </div>
 
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold">3</div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Go live</h3>
+          <!-- Step 3 -->
+          <div class="text-center reveal stagger-3">
+            <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+              3
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Go live</h3>
             <p class="text-gray-600">Hit translate and watch your store come alive in new languages. Updates stay synced automatically.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="section">
+    <!-- Why LocaleFlow Section (replacing fake testimonials) -->
+    <section class="section bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by growing Shopify stores</h2>
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why merchants choose LocaleFlow
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Built for Shopify stores that want to grow internationally without the translation headaches.
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-6 rounded-xl border border-gray-200">
-            <div class="flex items-center gap-1 mb-4">
-              {[1, 2, 3, 4, 5].map(() => (
-                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
+          <!-- Benefit 1 -->
+          <div class="card-elevated p-8 text-center reveal stagger-1">
+            <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
             </div>
-            <p class="text-gray-600 mb-4">"Finally, translations that don't fall behind. We update products daily and LocaleFlow keeps everything in sync."</p>
-            <p class="font-semibold text-gray-900">Fashion Brand Owner</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Always in sync</h3>
+            <p class="text-gray-600">Other apps require manual re-translation. LocaleFlow updates automatically when your content changes.</p>
           </div>
 
-          <div class="bg-white p-6 rounded-xl border border-gray-200">
-            <div class="flex items-center gap-1 mb-4">
-              {[1, 2, 3, 4, 5].map(() => (
-                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
+          <!-- Benefit 2 -->
+          <div class="card-elevated p-8 text-center reveal stagger-2">
+            <div class="w-16 h-16 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-            <p class="text-gray-600 mb-4">"Set it up once and forgot about it. Our German and French stores are always up to date now."</p>
-            <p class="font-semibold text-gray-900">Electronics Store Manager</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Set and forget</h3>
+            <p class="text-gray-600">Configure once and let it run. No ongoing maintenance, no manual syncing, no falling behind.</p>
           </div>
 
-          <div class="bg-white p-6 rounded-xl border border-gray-200">
-            <div class="flex items-center gap-1 mb-4">
-              {[1, 2, 3, 4, 5].map(() => (
-                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
+          <!-- Benefit 3 -->
+          <div class="card-elevated p-8 text-center reveal stagger-3">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
             </div>
-            <p class="text-gray-600 mb-4">"The custom term feature is a lifesaver. Brand names stay consistent across all our markets."</p>
-            <p class="font-semibold text-gray-900">Beauty Brand Director</p>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Brand consistency</h3>
+            <p class="text-gray-600">Custom terms and blacklists ensure your brand names and terminology stay consistent across all languages.</p>
           </div>
         </div>
       </div>
@@ -186,78 +257,52 @@ import Footer from '../components/Footer.astro';
     <!-- FAQ Section -->
     <section class="section bg-gray-50">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Frequently asked questions
+          </h2>
         </div>
 
-        <div class="space-y-6">
-          <details class="group bg-white border border-gray-200 rounded-lg p-6">
-            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
-              What languages do you support?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-4 text-gray-600">We support 100+ languages including all major European, Asian, and Middle Eastern languages. If Shopify supports it as a market, we can translate to it.</p>
-          </details>
-
-          <details class="group bg-white border border-gray-200 rounded-lg p-6">
-            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
-              How does automatic sync work?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-4 text-gray-600">When you update a product, page, or any content in Shopify, LocaleFlow automatically detects the change and updates the translations within minutes. No manual intervention needed.</p>
-          </details>
-
-          <details class="group bg-white border border-gray-200 rounded-lg p-6">
-            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
-              Can I review translations before they go live?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-4 text-gray-600">Yes! You can enable review mode to approve translations before they go live. Or let them publish automatically - it's your choice.</p>
-          </details>
-
-          <details class="group bg-white border border-gray-200 rounded-lg p-6">
-            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
-              What's the difference between LocaleFlow and Shopify Translate & Adapt?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-4 text-gray-600">LocaleFlow automatically syncs when your content changes - that's the key difference. We also offer more control with custom terms, blacklists, and field-level translation settings.</p>
-          </details>
-
-          <details class="group bg-white border border-gray-200 rounded-lg p-6">
-            <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-gray-900">
-              Is there a free plan?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-4 text-gray-600">Yes! We offer a free plan for small stores to get started. Paid plans unlock more languages, higher limits, and priority sync.</p>
-          </details>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 reveal">
+          <FAQ client:visible items={faqItems} />
         </div>
       </div>
     </section>
 
     <!-- Final CTA Section -->
-    <section class="section bg-primary-600">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to go global?</h2>
-        <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-          Join hundreds of Shopify stores using LocaleFlow to expand into new markets. Set up takes minutes.
+    <section class="section bg-gradient-to-br from-primary-500 to-primary-700 relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6 reveal">
+          Ready to go global?
+        </h2>
+        <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto reveal">
+          Start reaching international customers today. Set up takes minutes.
         </p>
-        <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-lg hover:bg-primary-50 transition-colors shadow-lg">
-          Install LocaleFlow Free
+        <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 reveal">
+          Get Started Free
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
         </a>
-        <p class="mt-6 text-primary-200">No credit card required</p>
+        <p class="mt-6 text-primary-200 text-sm reveal">No credit card required</p>
       </div>
     </section>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style>
