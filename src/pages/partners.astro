@@ -3,23 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { FAQ } from '../components/FAQ';
+import { PartnerForm } from '../components/PartnerForm';
 
 const partnerFaqs = [
+  {
+    question: "How does the commission structure work?",
+    answer: "You earn 30% commission in Year 1, 20% in Year 2, and 10% in Year 3 for each referred client. After 3 years, commissions end for that client. No caps on total earnings."
+  },
+  {
+    question: "When do I get paid?",
+    answer: "Commissions are paid monthly via bank transfer. Payments go out on the 15th of each month for the previous month's earnings. Minimum payout is $50."
+  },
   {
     question: "How does tracking work?",
     answer: "You get a unique referral link that tracks all clicks and signups. We use first-click attribution with a 90-day cookie window. You can see all your referrals and earnings in your partner dashboard."
   },
   {
-    question: "When do I get paid?",
-    answer: "Commissions are paid monthly via PayPal or bank transfer. Payments go out on the 15th of each month for the previous month's earnings. Minimum payout is $50."
-  },
-  {
     question: "What if a client cancels?",
-    answer: "You earn commission for as long as the client stays subscribed. If they cancel, your commission for that client stops - but there are no clawbacks on already-paid commissions."
-  },
-  {
-    question: "Is there a minimum requirement?",
-    answer: "No minimum referrals required. Whether you refer one client or a hundred, you'll earn commissions. However, higher-tier partners (5+ active referrals) get bumped to 30% commission."
+    answer: "You earn commission for as long as the client stays subscribed (up to 3 years). If they cancel, your commission for that client stops - but there are no clawbacks on already-paid commissions."
   },
   {
     question: "Can I install LocaleFlow for my clients?",
@@ -28,7 +29,7 @@ const partnerFaqs = [
 ];
 ---
 
-<BaseLayout title="Partner Program | LocaleFlow" description="Join the LocaleFlow partner program. Help your clients go global and earn 20-30% revenue share on every referral.">
+<BaseLayout title="Partner Program | LocaleFlow" description="Join the LocaleFlow partner program. Help your clients go global and earn recurring commissions on every referral.">
   <Header variant="partners" />
 
   <main class="pt-16 md:pt-20">
@@ -54,7 +55,7 @@ const partnerFaqs = [
         </h1>
 
         <p class="reveal text-xl text-gray-600 max-w-2xl mx-auto mb-10 stagger-2">
-          LocaleFlow automatically translates and syncs Shopify stores. Join our partner program for 20-30% recurring revenue share on every referral.
+          LocaleFlow automatically translates and syncs Shopify stores. Join our partner program and earn up to 30% recurring commission on every referral.
         </p>
 
         <div class="reveal flex flex-col sm:flex-row gap-4 justify-center stagger-3">
@@ -141,6 +142,59 @@ const partnerFaqs = [
       </div>
     </section>
 
+    <!-- Why Localization Matters Section -->
+    <section class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-br from-primary-50 via-white to-accent-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="reveal text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+              Your clients are leaving money on the table
+            </h2>
+            <p class="reveal text-lg text-gray-600 mb-6 stagger-1">
+              Going international is the #1 growth lever for established Shopify stores. But language barriers kill conversions.
+            </p>
+            <div class="space-y-4">
+              <div class="reveal flex items-start gap-3 stagger-2">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mt-0.5">
+                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-gray-700"><strong>75% of consumers</strong> prefer to buy in their native language</p>
+              </div>
+              <div class="reveal flex items-start gap-3 stagger-3">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mt-0.5">
+                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-gray-700"><strong>40%+ of shoppers</strong> won't buy from sites not in their language</p>
+              </div>
+              <div class="reveal flex items-start gap-3 stagger-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mt-0.5">
+                  <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-gray-700"><strong>Localized stores</strong> see higher trust, lower bounce rates, and more sales</p>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="card-elevated p-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+              <div class="text-center">
+                <div class="text-5xl font-display font-bold text-primary-400 mb-2">40%</div>
+                <p class="text-gray-300 mb-6">Cart abandonment from language barriers</p>
+                <div class="border-t border-gray-700 pt-6">
+                  <p class="text-lg text-gray-100">Help your clients unlock international markets with proper localization, not just currency conversion.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- The Solution Section -->
     <section class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
       <div class="blob w-[300px] h-[300px] bg-primary-100/50 top-20 -right-24"></div>
@@ -210,21 +264,11 @@ const partnerFaqs = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="text-xl font-display font-semibold text-gray-900 mb-2">20-30% revenue share</h3>
-            <p class="text-gray-600">Earn recurring commission on every client you refer. Paid monthly, no caps.</p>
+            <h3 class="text-xl font-display font-semibold text-gray-900 mb-2">Tiered commissions</h3>
+            <p class="text-gray-600">Earn 30% in Year 1, 20% in Year 2, and 10% in Year 3 on every referral. Paid monthly.</p>
           </div>
 
           <div class="reveal card-hover p-6 stagger-2">
-            <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-sky-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-display font-semibold text-gray-900 mb-2">Free test account</h3>
-            <p class="text-gray-600">Get a full-featured account for your team to learn and demo the product.</p>
-          </div>
-
-          <div class="reveal card-hover p-6 stagger-3">
             <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-violet-100 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -234,7 +278,7 @@ const partnerFaqs = [
             <p class="text-gray-600">Jump the queue with dedicated partner support. We've got your back.</p>
           </div>
 
-          <div class="reveal card-hover p-6 stagger-4">
+          <div class="reveal card-hover p-6 stagger-3">
             <div class="w-12 h-12 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -244,7 +288,7 @@ const partnerFaqs = [
             <p class="text-gray-600">Joint case studies, webinars, and content to grow together.</p>
           </div>
 
-          <div class="reveal card-hover p-6 stagger-5">
+          <div class="reveal card-hover p-6 stagger-4">
             <div class="w-12 h-12 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -254,7 +298,7 @@ const partnerFaqs = [
             <p class="text-gray-600">Get listed in our partner directory and display your partner status.</p>
           </div>
 
-          <div class="reveal card-hover p-6 stagger-6">
+          <div class="reveal card-hover p-6 stagger-5">
             <div class="w-12 h-12 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -277,7 +321,7 @@ const partnerFaqs = [
 
         <div class="relative max-w-5xl mx-auto">
           <!-- Connecting line (desktop) -->
-          <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 -translate-y-1/2 z-0"></div>
+          <div class="hidden lg:block absolute top-7 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 z-0"></div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             <div class="reveal text-center stagger-1">
@@ -300,8 +344,8 @@ const partnerFaqs = [
 
             <div class="reveal text-center stagger-4">
               <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl font-display font-bold shadow-lg shadow-primary-500/30">4</div>
-              <h3 class="font-display font-semibold text-gray-900 mb-2">Earn on every subscription</h3>
-              <p class="text-gray-600 text-sm">Get 20-30% of their subscription for as long as they're a customer.</p>
+              <h3 class="font-display font-semibold text-gray-900 mb-2">Earn for 3 years</h3>
+              <p class="text-gray-600 text-sm">Earn 30% (Y1), 20% (Y2), 10% (Y3) commission on every subscription.</p>
             </div>
           </div>
         </div>
@@ -335,115 +379,9 @@ const partnerFaqs = [
           <p class="reveal text-xl text-primary-100 stagger-1">Join the LocaleFlow partner program today</p>
         </div>
 
-        <form
-          action="https://formspree.io/f/FORM_ID"
-          method="POST"
-          class="reveal card-base p-8 shadow-2xl stagger-2"
-        >
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                placeholder="John Smith"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                placeholder="john@agency.com"
-              />
-            </div>
-
-            <div>
-              <label for="agency" class="block text-sm font-medium text-gray-700 mb-2">Agency name *</label>
-              <input
-                type="text"
-                id="agency"
-                name="agency"
-                required
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                placeholder="Awesome Agency"
-              />
-            </div>
-
-            <div>
-              <label for="website" class="block text-sm font-medium text-gray-700 mb-2">Agency website *</label>
-              <input
-                type="url"
-                id="website"
-                name="website"
-                required
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-                placeholder="https://agency.com"
-              />
-            </div>
-
-            <div>
-              <label for="shopify_partner" class="block text-sm font-medium text-gray-700 mb-2">Shopify Partner?</label>
-              <select
-                id="shopify_partner"
-                name="shopify_partner"
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-              >
-                <option value="">Select...</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-                <option value="plus">Shopify Plus Partner</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="clients" class="block text-sm font-medium text-gray-700 mb-2">Shopify clients</label>
-              <select
-                id="clients"
-                name="clients"
-                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-              >
-                <option value="">Select...</option>
-                <option value="1-5">1-5 clients</option>
-                <option value="6-20">6-20 clients</option>
-                <option value="21-50">21-50 clients</option>
-                <option value="50+">50+ clients</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <label for="markets" class="block text-sm font-medium text-gray-700 mb-2">Primary markets served</label>
-            <input
-              type="text"
-              id="markets"
-              name="markets"
-              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
-              placeholder="e.g., EU, US, APAC"
-            />
-          </div>
-
-          <button
-            type="submit"
-            class="w-full mt-8 btn-primary text-lg py-4 justify-center"
-          >
-            Apply to Partner Program
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
-
-          <p class="text-center text-gray-500 text-sm mt-4">
-            We'll review your application and get back to you within 48 hours.
-          </p>
-        </form>
+        <div class="reveal stagger-2">
+          <PartnerForm client:visible />
+        </div>
       </div>
     </section>
   </main>
