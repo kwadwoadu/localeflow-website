@@ -67,7 +67,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'LocaleFlow <noreply@localeflowapp.com>',
+        from: 'LocaleFlow <onboarding@resend.dev>',
         to: ['ka@localeflowapp.com'],
         subject: `New Partner Application: ${agency}`,
         html: emailHtml,
