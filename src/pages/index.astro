@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CustomerLogos from '../components/CustomerLogos.astro';
 import { FAQ } from '../components/FAQ';
 
 const faqItems = [
@@ -11,19 +12,15 @@ const faqItems = [
   },
   {
     question: "How does automatic sync work?",
-    answer: "When you update a product, page, or any content in Shopify, LocaleFlow automatically detects the change and updates the translations within minutes. No manual intervention needed."
+    answer: "LocaleFlow automatically syncs your translations once every 24 hours. When content changes are detected, translations are updated automatically. No manual intervention needed."
   },
   {
-    question: "Can I review translations before they go live?",
-    answer: "Yes! You can enable review mode to approve translations before they go live. Or let them publish automatically - it's your choice."
+    question: "What's the difference between LocaleFlow and Translate & Adapt?",
+    answer: "Translate & Adapt requires manual updates every time your content changes. LocaleFlow automatically syncs translations once every 24 hours - set it and forget it."
   },
   {
     question: "What's the difference between LocaleFlow and other translation apps?",
     answer: "LocaleFlow automatically syncs when your content changes - that's the key difference. We also offer more control with custom terms, blacklists, and field-level translation settings."
-  },
-  {
-    question: "Is there a free plan?",
-    answer: "Yes! We offer a free plan for small stores to get started. Paid plans unlock more languages, higher limits, and priority sync."
   }
 ];
 ---
@@ -55,12 +52,12 @@ const faqItems = [
             </h1>
 
             <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed reveal">
-              LocaleFlow keeps your translations in sync when content changes. Products, pages, menus — all translated and updated without lifting a finger.
+              LocaleFlow keeps your translations in sync when content changes. Products, pages, menus - all translated and updated without lifting a finger.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
-              <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
-                Get Started Free
+              <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
+                Start Translating
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -69,12 +66,13 @@ const faqItems = [
                 See How It Works
               </a>
             </div>
-
-            <p class="mt-8 text-gray-400 text-sm reveal">Free plan available. No credit card required.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Customer Logos Section -->
+    <CustomerLogos />
 
     <!-- Features Section -->
     <section id="features" class="section bg-white">
@@ -168,38 +166,37 @@ const faqItems = [
           <p class="text-xl text-gray-600">Three simple steps to a multi-language store</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-          <!-- Step 1 -->
-          <div class="text-center reveal stagger-1">
-            <div class="relative">
+        <div class="relative max-w-5xl mx-auto">
+          <!-- Connecting line (desktop) -->
+          <div class="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 z-0"></div>
+
+          <div class="grid md:grid-cols-3 gap-12 relative z-10">
+            <!-- Step 1 -->
+            <div class="text-center reveal stagger-1">
               <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
                 1
               </div>
-              <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-transparent"></div>
+              <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Install & connect</h3>
+              <p class="text-gray-600">Install LocaleFlow from the Shopify App Store. Connect in one click. No complex setup required.</p>
             </div>
-            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Install & connect</h3>
-            <p class="text-gray-600">Install LocaleFlow from the Shopify App Store. Connect in one click — no complex setup required.</p>
-          </div>
 
-          <!-- Step 2 -->
-          <div class="text-center reveal stagger-2">
-            <div class="relative">
+            <!-- Step 2 -->
+            <div class="text-center reveal stagger-2">
               <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
                 2
               </div>
-              <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-transparent"></div>
+              <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Choose languages</h3>
+              <p class="text-gray-600">Select your target languages and configure any custom terms or blacklists. We support 100+ languages.</p>
             </div>
-            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Choose languages</h3>
-            <p class="text-gray-600">Select your target languages and configure any custom terms or blacklists. We support 100+ languages.</p>
-          </div>
 
-          <!-- Step 3 -->
-          <div class="text-center reveal stagger-3">
-            <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
-              3
+            <!-- Step 3 -->
+            <div class="text-center reveal stagger-3">
+              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+                3
+              </div>
+              <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Go live</h3>
+              <p class="text-gray-600">Hit translate and watch your store come alive in new languages. Updates stay synced automatically.</p>
             </div>
-            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Go live</h3>
-            <p class="text-gray-600">Hit translate and watch your store come alive in new languages. Updates stay synced automatically.</p>
           </div>
         </div>
       </div>
@@ -217,7 +214,7 @@ const faqItems = [
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           <!-- Benefit 1 -->
           <div class="card-elevated p-8 text-center reveal stagger-1">
             <div class="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -249,6 +246,17 @@ const faqItems = [
             </div>
             <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Brand consistency</h3>
             <p class="text-gray-600">Custom terms and blacklists ensure your brand names and terminology stay consistent across all languages.</p>
+          </div>
+
+          <!-- Benefit 4 - Conversion -->
+          <div class="card-elevated p-8 text-center reveal stagger-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Higher conversions</h3>
+            <p class="text-gray-600">75% of consumers prefer buying in their native language. Localization means more trust and more sales.</p>
           </div>
         </div>
       </div>
@@ -284,13 +292,12 @@ const faqItems = [
         <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto reveal">
           Start reaching international customers today. Set up takes minutes.
         </p>
-        <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 reveal">
-          Get Started Free
+        <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 reveal">
+          Start Translating
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
-        <p class="mt-6 text-primary-200 text-sm reveal">No credit card required</p>
       </div>
     </section>
   </main>

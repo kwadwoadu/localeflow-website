@@ -1,0 +1,76 @@
+---
+const customers = [
+  {
+    name: "Rezet Store",
+    logo: "/logos/rezetstore.svg",
+    url: "https://rezetstore.dk"
+  },
+  {
+    name: "Vetro",
+    logo: "/logos/vetro.webp",
+    url: "https://vetro.dk"
+  },
+  {
+    name: "Nordic Aid",
+    logo: "/logos/nordicaid_logo-white.png",
+    url: "https://nordicaid.dk"
+  },
+  {
+    name: "Ny Form",
+    logo: "/logos/nyform.svg",
+    url: "https://ny-form.com"
+  },
+  {
+    name: "SuperSellers",
+    logo: "/logos/SuperSellers.svg",
+    url: "https://supersellers.dk"
+  },
+  {
+    name: "Nordgreen",
+    logo: "/logos/Nordgreen-Logo-White.avif",
+    url: "https://nordgreen.com"
+  }
+];
+---
+
+<section class="py-12 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-gray-400 text-sm font-medium mb-8 reveal">
+      Trusted by leading Shopify stores
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+      {customers.map((customer) => (
+        <a
+          href={customer.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="customer-logo group"
+          title={customer.name}
+        >
+          <img
+            src={customer.logo}
+            alt={customer.name}
+            class="h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .customer-logo {
+    @apply flex items-center justify-center;
+  }
+
+  .customer-logo img {
+    filter: brightness(0) invert(1);
+  }
+
+  .customer-logo:hover img {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+</style>
