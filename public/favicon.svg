@@ -1,5 +1,11 @@
-<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="8" fill="#0284c7"/>
-  <path d="M8 12h16M8 16h12M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="22" cy="20" r="4" fill="white"/>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bgGradient)"/>
+  <text x="6" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">文</text>
+  <text x="17" y="24" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">A</text>
 </svg>

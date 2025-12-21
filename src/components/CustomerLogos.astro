@@ -3,55 +3,62 @@ const customers = [
   {
     name: "Rezet Store",
     logo: "/logos/rezetstore.svg",
-    url: "https://rezetstore.dk"
+    url: "https://rezetstore.dk",
+    isWhiteLogo: false
   },
   {
     name: "Vetro",
     logo: "/logos/vetro.webp",
-    url: "https://vetro.dk"
+    url: "https://vetro.dk",
+    isWhiteLogo: false
   },
   {
     name: "Nordic Aid",
     logo: "/logos/nordicaid_logo-white.png",
-    url: "https://nordicaid.dk"
+    url: "https://nordicaid.dk",
+    isWhiteLogo: true
   },
   {
     name: "Ny Form",
     logo: "/logos/nyform.svg",
-    url: "https://ny-form.com"
+    url: "https://ny-form.com",
+    isWhiteLogo: false
   },
   {
     name: "SuperSellers",
     logo: "/logos/SuperSellers.svg",
-    url: "https://supersellers.dk"
+    url: "https://supersellers.dk",
+    isWhiteLogo: false
   },
   {
     name: "Nordgreen",
     logo: "/logos/Nordgreen-Logo-White.avif",
-    url: "https://nordgreen.com"
+    url: "https://nordgreen.com",
+    isWhiteLogo: true
   }
 ];
 ---
 
-<section class="py-12 bg-gray-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="text-center text-gray-400 text-sm font-medium mb-8 reveal">
+<section class="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-gray-500 text-sm font-medium tracking-wide uppercase mb-10 reveal">
       Trusted by leading Shopify stores
     </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-      {customers.map((customer) => (
+    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 lg:gap-x-20">
+      {customers.map((customer, index) => (
         <a
           href={customer.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="customer-logo group"
+          class={`customer-logo group ${customer.isWhiteLogo ? 'white-logo' : ''}`}
           title={customer.name}
+          style={`animation-delay: ${index * 100}ms`}
         >
           <img
             src={customer.logo}
-            alt={customer.name}
-            class="h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            alt={`${customer.name} logo`}
+            class="h-7 md:h-9 w-auto max-w-[100px] md:max-w-[130px] object-contain transition-all duration-300"
             loading="lazy"
           />
         </a>
@@ -65,12 +72,48 @@ const customers = [
     @apply flex items-center justify-center;
   }
 
+  /* Regular logos - grayscale at rest, color on hover */
   .customer-logo img {
-    filter: brightness(0) invert(1);
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: all 0.3s ease-out;
   }
 
   .customer-logo:hover img {
-    filter: brightness(0) invert(1);
     opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* White logos - invert to show on light bg */
+  .customer-logo.white-logo img {
+    filter: grayscale(100%) invert(1) brightness(0.3);
+    opacity: 0.5;
+  }
+
+  .customer-logo.white-logo:hover img {
+    filter: grayscale(0%) invert(1) brightness(0.2);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .customer-logo:focus-visible {
+    @apply outline-none ring-2 ring-orange-500 ring-offset-2 rounded-lg;
+  }
+
+  /* Reveal animation */
+  .customer-logo {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

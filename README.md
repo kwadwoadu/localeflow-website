@@ -30,7 +30,7 @@ npm run build
 
 Deployed automatically via Cloudflare Pages on push to `main`.
 
-**Live URL**: https://localeflow.pages.dev
+**Live URL**: https://localeflowapp.com
 
 ## Project Structure
 

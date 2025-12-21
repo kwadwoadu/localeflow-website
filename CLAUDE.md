@@ -39,7 +39,7 @@ npm run preview
 ```
 
 ## Deployment
-- **URL**: localeflow.pages.dev (temporary)
+- **URL**: localeflowapp.com
 - **Platform**: Cloudflare Pages
 - **Build command**: `npm run build`
 - **Output directory**: `dist`

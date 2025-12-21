@@ -30,6 +30,9 @@ const { variant = 'default' } = Astro.props;
         <a href="/partners" class={`px-4 py-2 font-medium rounded-lg transition-all duration-200 ${variant === 'partners' ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50'}`}>
           Partners
         </a>
+        <a href="mailto:hi@localeflowapp.com" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
+          Contact
+        </a>
       </div>
 
       <!-- CTA Buttons -->
@@ -43,8 +46,8 @@ const { variant = 'default' } = Astro.props;
             <a href="/partners" class="btn-ghost text-sm">
               Partner Program
             </a>
-            <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary">
-              Get Started Free
+            <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary">
+              Start Translating
             </a>
           </>
         )}
@@ -77,14 +80,17 @@ const { variant = 'default' } = Astro.props;
         <a href="/partners" class={`px-4 py-3 font-medium rounded-lg transition-all ${variant === 'partners' ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-primary-50'}`}>
           Partners
         </a>
+        <a href="mailto:hi@localeflowapp.com" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
+          Contact
+        </a>
         <div class="pt-4 mt-2 border-t border-gray-100">
           {variant === 'partners' ? (
             <a href="#partner-form" class="btn-primary w-full justify-center">
               Become a Partner
             </a>
           ) : (
-            <a href="https://apps.shopify.com" target="_blank" rel="noopener" class="btn-primary w-full justify-center">
-              Get Started Free
+            <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary w-full justify-center">
+              Start Translating
             </a>
           )}
         </div>
