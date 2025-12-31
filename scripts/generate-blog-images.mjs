@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Generate LocaleFlow Blog Post Images using Gemini 2.5 Flash
+ * Generate LocaleFlow Blog Post Images using Gemini 2.5 Flash Image (Nano Banana)
  *
  * Creates abstract conceptual hero images for blog posts
  * using translation/localization visual metaphors.
  *
- * Usage: node scripts/generate-blog-images.mjs
+ * Usage: GEMINI_API_KEY=your_key node scripts/generate-blog-images.mjs
  */
 
 import { GoogleGenAI } from '@google/genai'
@@ -25,11 +25,8 @@ if (!GEMINI_API_KEY) {
 }
 const client = new GoogleGenAI({ apiKey: GEMINI_API_KEY })
 
-// Models to try for image generation
-const IMAGE_MODELS = [
-  'gemini-2.0-flash-preview-image-generation',
-  'gemini-2.0-flash-exp'
-]
+// Model - Gemini 2.5 Flash Image (Nano Banana)
+const IMAGE_MODEL = 'gemini-2.5-flash-image'
 
 // Paths
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'blog', 'images')
@@ -176,19 +173,14 @@ Emphasis on scale and partnership.`
 ]
 
 /**
- * Generate image using Gemini
+ * Generate image using Gemini 2.5 Flash Image (Nano Banana)
  */
-async function generateImage(prompt, modelIndex = 0) {
-  if (modelIndex >= IMAGE_MODELS.length) {
-    throw new Error('All image generation models failed')
-  }
-
-  const model = IMAGE_MODELS[modelIndex]
-  console.log(`  Trying model: ${model}`)
+async function generateImage(prompt) {
+  console.log(`  Using model: ${IMAGE_MODEL}`)
 
   try {
     const response = await client.models.generateContent({
-      model: model,
+      model: IMAGE_MODEL,
       contents: [
         {
           parts: [{ text: prompt }]
@@ -202,7 +194,6 @@ async function generateImage(prompt, modelIndex = 0) {
       }
     })
 
-    // Extract image data from response
     const candidate = response.candidates?.[0]
     if (!candidate) {
       throw new Error('No candidate in response')
@@ -223,15 +214,6 @@ async function generateImage(prompt, modelIndex = 0) {
 
     return imagePart.inlineData.data
   } catch (error) {
-    const msg = error.message || String(error)
-    console.log(`  Model ${model} failed: ${msg}`)
-
-    // Try next model
-    if (modelIndex < IMAGE_MODELS.length - 1) {
-      console.log(`  Trying fallback model...`)
-      return generateImage(prompt, modelIndex + 1)
-    }
-
     throw error
   }
 }
