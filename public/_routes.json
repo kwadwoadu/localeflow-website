@@ -2,15 +2,18 @@
   "version": 1,
   "include": ["/api/*"],
   "exclude": [
-    "/blog/images/*",
+    "/images/*",
+    "/images/blog/*",
     "/flowy/*",
     "/logos/*",
-    "/images/*",
+    "/_astro/*",
     "/*.svg",
     "/*.ico",
     "/*.png",
     "/*.webp",
     "/*.jpg",
-    "/*.jpeg"
+    "/*.jpeg",
+    "/*.xml",
+    "/*.txt"
   ]
 }
