@@ -62,6 +62,46 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-links': '#ea580c',
+            '--tw-prose-th-borders': '#e5e7eb',
+            '--tw-prose-td-borders': '#e5e7eb',
+            maxWidth: 'none',
+            table: {
+              width: '100%',
+              marginTop: '1.5em',
+              marginBottom: '1.5em',
+              borderCollapse: 'collapse',
+            },
+            thead: {
+              borderBottomWidth: '2px',
+              borderBottomColor: '#e5e7eb',
+            },
+            'thead th': {
+              fontWeight: '600',
+              padding: '0.75rem 1rem',
+              textAlign: 'left',
+              backgroundColor: '#f9fafb',
+            },
+            'tbody tr': {
+              borderBottomWidth: '1px',
+              borderBottomColor: '#e5e7eb',
+            },
+            'tbody tr:last-child': {
+              borderBottomWidth: '0',
+            },
+            'tbody td': {
+              padding: '0.75rem 1rem',
+              verticalAlign: 'top',
+            },
+            'tbody tr:nth-child(even)': {
+              backgroundColor: '#f9fafb',
+            },
+          },
+        },
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -121,5 +161,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
 };
