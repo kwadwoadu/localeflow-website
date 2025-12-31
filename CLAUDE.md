@@ -43,6 +43,7 @@ npm run preview
 - **Platform**: Cloudflare Pages
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
+- **IMPORTANT**: Deployments are **MANUAL** - go to Cloudflare Pages dashboard to deploy (no auto-deploy from GitHub)
 
 ## Content Guidelines
 - Keep copy concise and benefit-focused
@@ -61,4 +62,4 @@ Partner signup forms should collect:
 
 ---
 
-*Last updated: December 5, 2025*
+*Last updated: December 31, 2025*
