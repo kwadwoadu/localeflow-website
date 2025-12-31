@@ -41,9 +41,13 @@ npm run preview
 ## Deployment
 - **URL**: localeflowapp.com
 - **Platform**: Cloudflare Pages
+- **Project name**: `localeflow`
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
-- **IMPORTANT**: Deployments are **MANUAL** - go to Cloudflare Pages dashboard to deploy (no auto-deploy from GitHub)
+- **IMPORTANT**: Deployments are **MANUAL** via wrangler:
+  ```bash
+  npm run build && wrangler pages deploy dist --project-name=localeflow
+  ```
 
 ## Content Guidelines
 - Keep copy concise and benefit-focused

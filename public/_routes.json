@@ -3,7 +3,6 @@
   "include": ["/api/*"],
   "exclude": [
     "/images/*",
-    "/images/blog/*",
     "/flowy/*",
     "/logos/*",
     "/_astro/*",
