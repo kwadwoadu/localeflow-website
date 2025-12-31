@@ -113,12 +113,15 @@ const breadcrumbSchema = generateBreadcrumbSchema(post);
   <!-- Hero Image -->
   {image && (
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-      <img
-        src={image}
-        alt={imageAlt || title}
-        class="w-full rounded-2xl shadow-lg"
-        loading="eager"
-      />
+      <picture>
+        <source srcset={image.replace('.png', '.webp')} type="image/webp" />
+        <img
+          src={image}
+          alt={imageAlt || title}
+          class="w-full rounded-2xl shadow-lg"
+          loading="eager"
+        />
+      </picture>
     </div>
   )}
 
