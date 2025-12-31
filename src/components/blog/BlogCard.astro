@@ -1,0 +1,69 @@
+---
+import type { BlogPost } from '../../lib/blog';
+import { formatDate, getPostUrl, BLOG_CATEGORIES, calculateReadingTime } from '../../lib/blog';
+
+interface Props {
+  post: BlogPost;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, publishedAt, category, image, imageAlt, author } = post.data;
+const readingTime = calculateReadingTime(post.body || '');
+const categoryInfo = BLOG_CATEGORIES[category];
+---
+
+<article class={`group ${featured ? 'md:flex md:gap-8' : ''}`}>
+  <a
+    href={getPostUrl(post)}
+    class={`block overflow-hidden rounded-2xl bg-gray-100 ${featured ? 'md:w-1/2' : 'aspect-[16/9]'}`}
+  >
+    {image ? (
+      <img
+        src={image}
+        alt={imageAlt || title}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+        <svg class="w-16 h-16 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+      </div>
+    )}
+  </a>
+
+  <div class={`${featured ? 'md:w-1/2 md:py-4' : 'mt-4'}`}>
+    <div class="flex items-center gap-3 mb-3">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700">
+        {categoryInfo.label}
+      </span>
+      <span class="text-sm text-gray-500">
+        {readingTime} min read
+      </span>
+    </div>
+
+    <a href={getPostUrl(post)} class="block group">
+      <h3 class={`font-display font-bold text-gray-900 group-hover:text-primary-600 transition-colors ${featured ? 'text-2xl md:text-3xl' : 'text-xl'} leading-tight`}>
+        {title}
+      </h3>
+    </a>
+
+    <p class={`mt-2 text-gray-600 leading-relaxed ${featured ? 'text-base' : 'text-sm'} line-clamp-2`}>
+      {description}
+    </p>
+
+    <div class="mt-4 flex items-center gap-3">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-sm font-medium">
+          {author.name.charAt(0)}
+        </div>
+        <div>
+          <p class="text-sm font-medium text-gray-900">{author.name}</p>
+          <p class="text-xs text-gray-500">{formatDate(publishedAt)}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

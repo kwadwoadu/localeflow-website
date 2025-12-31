@@ -1,0 +1,37 @@
+---
+import { BLOG_CATEGORIES, type BlogCategory } from '../../lib/blog';
+
+interface Props {
+  activeCategory?: BlogCategory | 'all';
+}
+
+const { activeCategory = 'all' } = Astro.props;
+
+const categories = Object.entries(BLOG_CATEGORIES) as [BlogCategory, { label: string; description: string }][];
+---
+
+<nav class="flex flex-wrap gap-2">
+  <a
+    href="/blog"
+    class={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+      activeCategory === 'all'
+        ? 'bg-primary-600 text-white'
+        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+    }`}
+  >
+    All Posts
+  </a>
+
+  {categories.map(([slug, { label }]) => (
+    <a
+      href={`/blog?category=${slug}`}
+      class={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+        activeCategory === slug
+          ? 'bg-primary-600 text-white'
+          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+      }`}
+    >
+      {label}
+    </a>
+  ))}
+</nav>

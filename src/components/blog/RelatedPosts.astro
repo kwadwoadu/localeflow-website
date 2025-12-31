@@ -1,0 +1,74 @@
+---
+import type { BlogPost } from '../../lib/blog';
+import { formatDate, getPostUrl, BLOG_CATEGORIES, calculateReadingTime } from '../../lib/blog';
+
+interface Props {
+  posts: BlogPost[];
+  title?: string;
+}
+
+const { posts, title = 'Related Articles' } = Astro.props;
+---
+
+{posts.length > 0 && (
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-2xl text-gray-900 mb-8">{title}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post) => {
+          const { title, description, publishedAt, category, image, imageAlt } = post.data;
+          const categoryInfo = BLOG_CATEGORIES[category];
+          const readingTime = calculateReadingTime(post.body || '');
+
+          return (
+            <article class="group">
+              <a
+                href={getPostUrl(post)}
+                class="block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div class="aspect-[16/9] overflow-hidden">
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={imageAlt || title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+                      <svg class="w-12 h-12 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                <div class="p-5">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-700">
+                      {categoryInfo.label}
+                    </span>
+                    <span class="text-xs text-gray-500">{readingTime} min</span>
+                  </div>
+
+                  <h3 class="font-display font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
+                    {title}
+                  </h3>
+
+                  <p class="mt-2 text-sm text-gray-600 line-clamp-2">
+                    {description}
+                  </p>
+
+                  <p class="mt-3 text-xs text-gray-500">
+                    {formatDate(publishedAt)}
+                  </p>
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,211 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import RelatedPosts from '../../components/blog/RelatedPosts.astro';
+import { formatDate, getRelatedPosts, BLOG_CATEGORIES, calculateReadingTime, getPostUrl } from '../../lib/blog';
+import { generateArticleSchema, generateBreadcrumbSchema } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, publishedAt, updatedAt, author, category, tags, image, imageAlt, seoTitle, canonicalUrl } = post.data;
+
+const readingTime = calculateReadingTime(post.body || '');
+const categoryInfo = BLOG_CATEGORIES[category];
+const relatedPosts = await getRelatedPosts(post, 3);
+
+const articleSchema = generateArticleSchema(post, readingTime);
+const breadcrumbSchema = generateBreadcrumbSchema(post);
+---
+
+<BlogLayout
+  title={seoTitle || title}
+  description={description}
+  image={image}
+  publishedAt={publishedAt}
+  updatedAt={updatedAt}
+  author={author.name}
+  category={category}
+  tags={tags}
+  canonicalUrl={canonicalUrl}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <ol class="flex items-center gap-2 text-sm">
+        <li>
+          <a href="/" class="text-gray-500 hover:text-primary-600 transition-colors">Home</a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li>
+          <a href="/blog" class="text-gray-500 hover:text-primary-600 transition-colors">Blog</a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li>
+          <a href={`/blog?category=${category}`} class="text-gray-500 hover:text-primary-600 transition-colors">
+            {categoryInfo.label}
+          </a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-700 font-medium truncate max-w-[200px]">{title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="py-12 md:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-4">
+        <a
+          href={`/blog?category=${category}`}
+          class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors"
+        >
+          {categoryInfo.label}
+        </a>
+        <span class="text-sm text-gray-500">
+          {readingTime} min read
+        </span>
+      </div>
+
+      <h1 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-gray-900 leading-tight">
+        {title}
+      </h1>
+
+      <p class="mt-4 text-xl text-gray-600 leading-relaxed">
+        {description}
+      </p>
+
+      <div class="mt-8 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-lg font-medium">
+          {author.name.charAt(0)}
+        </div>
+        <div>
+          <p class="font-medium text-gray-900">{author.name}</p>
+          <div class="flex items-center gap-2 text-sm text-gray-500">
+            <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
+            {updatedAt && updatedAt > publishedAt && (
+              <>
+                <span>-</span>
+                <span>Updated {formatDate(updatedAt)}</span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Image -->
+  {image && (
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <img
+        src={image}
+        alt={imageAlt || title}
+        class="w-full rounded-2xl shadow-lg"
+        loading="eager"
+      />
+    </div>
+  )}
+
+  <!-- Article Content -->
+  <article class="pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg prose-gray max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-pre:bg-gray-900">
+        <Content />
+      </div>
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <h4 class="font-medium text-gray-900 mb-3">Tags</h4>
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Share -->
+      <div class="mt-8 pt-8 border-t border-gray-200">
+        <h4 class="font-medium text-gray-900 mb-3">Share this article</h4>
+        <div class="flex gap-3">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(`https://localeflowapp.com${getPostUrl(post)}`)}`}
+            target="_blank"
+            rel="noopener"
+            class="p-3 rounded-lg bg-gray-100 text-gray-600 hover:bg-[#1DA1F2] hover:text-white transition-colors"
+            aria-label="Share on Twitter"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a
+            href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://localeflowapp.com${getPostUrl(post)}`)}&title=${encodeURIComponent(title)}`}
+            target="_blank"
+            rel="noopener"
+            class="p-3 rounded-lg bg-gray-100 text-gray-600 hover:bg-[#0A66C2] hover:text-white transition-colors"
+            aria-label="Share on LinkedIn"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <button
+            onclick={`navigator.clipboard.writeText('https://localeflowapp.com${getPostUrl(post)}'); this.innerHTML = '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>'; setTimeout(() => { this.innerHTML = '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>'; }, 2000);`}
+            class="p-3 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+            aria-label="Copy link"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <RelatedPosts posts={relatedPosts} />
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-bold text-3xl text-white">
+        Ready to translate your Shopify store?
+      </h2>
+      <p class="mt-4 text-primary-100 text-lg">
+        Start with a free trial. No credit card required.
+      </p>
+      <a
+        href="https://apps.shopify.com/locale-flow"
+        target="_blank"
+        rel="noopener"
+        class="mt-6 inline-flex items-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-colors shadow-lg"
+      >
+        Start Translating Free
+        <svg class="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</BlogLayout>

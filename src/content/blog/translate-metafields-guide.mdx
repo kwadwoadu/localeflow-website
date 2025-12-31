@@ -1,0 +1,299 @@
+---
+title: "Complete Guide to Translating Metafields in Shopify"
+description: "Learn how to translate Shopify metafields and metaobjects for your international store. Step-by-step guide for product attributes, size guides, and more."
+publishedAt: 2025-01-02
+author:
+  name: "LocaleFlow Team"
+  role: "Product Team"
+category: "guides"
+tags:
+  - metafields
+  - metaobjects
+  - product attributes
+  - shopify translation
+featured: false
+image: "/blog/images/metafields-translation.png"
+imageAlt: "Translating Shopify metafields guide"
+---
+
+Metafields are essential for modern Shopify stores. They store product specifications, size guides, care instructions, and custom attributes. But many merchants overlook metafield translation - leaving international customers with a mix of languages on product pages.
+
+## What Are Metafields?
+
+Metafields are custom data fields in Shopify. They extend what you can store about products, collections, customers, and more.
+
+Common metafield uses:
+- Product specifications (weight, dimensions)
+- Materials and ingredients
+- Care instructions
+- Size guides
+- Custom attributes for filtering
+- Technical specifications
+
+## Why Metafield Translation Matters
+
+Consider a German customer viewing your product page:
+- Product title: German
+- Description: German
+- "Material: 100% Cotton" (metafield): English
+
+This inconsistency hurts:
+- **User experience** - Jarring language switches
+- **Trust** - Looks unprofessional
+- **Conversions** - Customers may not understand key info
+- **SEO** - Mixed language content confuses search engines
+
+## Types of Metafields to Translate
+
+### Product Metafields
+
+The most common type:
+- Material composition
+- Care instructions
+- Dimensions and specifications
+- Features and benefits
+- Warranty information
+
+### Collection Metafields
+
+- Collection descriptions
+- Filter labels
+- Featured content
+
+### Metaobjects
+
+Shopify's newer feature for structured data:
+- Size guides
+- Ingredient lists
+- Color swatches with names
+- FAQ entries
+- Store locations
+
+## Setting Up Metafield Translation in LocaleFlow
+
+LocaleFlow provides field-level control over metafield translation.
+
+### Step 1: Access Metafield Settings
+
+1. Open LocaleFlow in your Shopify admin
+2. Go to Translation Settings
+3. Find the Metafields section
+
+### Step 2: View Your Metafields
+
+LocaleFlow automatically discovers your store's metafields:
+- Namespace and key
+- Field type (text, rich text, list, etc.)
+- Where it's used (products, collections, etc.)
+
+### Step 3: Select Fields to Translate
+
+For each metafield, decide:
+- **Translate**: Customer-facing text fields
+- **Don't translate**: Technical values, codes, measurements
+
+#### Fields to Translate:
+
+| Metafield | Translate? |
+|-----------|------------|
+| `custom.material_description` | Yes |
+| `custom.care_instructions` | Yes |
+| `custom.feature_list` | Yes |
+| `custom.size_guide_text` | Yes |
+
+#### Fields NOT to Translate:
+
+| Metafield | Translate? |
+|-----------|------------|
+| `custom.sku_suffix` | No |
+| `custom.weight_grams` | No |
+| `custom.color_hex` | No |
+| `custom.internal_notes` | No |
+
+### Step 4: Run Translation
+
+Once configured, LocaleFlow:
+1. Fetches translatable metafield content
+2. Translates using AI
+3. Stores translations in Shopify's system
+4. Auto-syncs when content changes
+
+## Translating Metaobjects
+
+Metaobjects require similar attention.
+
+### Example: Size Guide Metaobject
+
+Your size guide might have:
+- Header text
+- Size names (S, M, L, XL)
+- Measurement labels (Chest, Waist, Hips)
+- Fit descriptions
+
+**Which to translate:**
+- Header text: Yes
+- Measurement labels: Yes
+- Fit descriptions: Yes
+- Size names: Sometimes (S/M/L are often universal)
+- Numeric measurements: No
+
+### Example: FAQ Metaobject
+
+For FAQ entries:
+- Question text: Translate
+- Answer text: Translate
+- Category label: Translate
+- Internal ID: Don't translate
+
+## Field-Level Control
+
+LocaleFlow lets you be specific about what gets translated.
+
+### Rich Text Fields
+
+For metafields containing formatted content:
+- The full content is translated
+- Formatting (bold, lists, links) is preserved
+- HTML structure stays intact
+
+### List Fields
+
+For metafields with multiple values:
+- Each list item is translated individually
+- Order is preserved
+- Empty items are skipped
+
+### Single-Line Text
+
+Standard text fields:
+- Full value is translated
+- Leading/trailing spaces preserved
+
+## Best Practices
+
+### 1. Audit Before Translating
+
+Before enabling translation:
+1. List all metafields in use
+2. Identify customer-facing vs. internal
+3. Note any that should stay in original language
+
+### 2. Use Consistent Naming
+
+Organize metafields with clear namespaces:
+- `translate.material` (should be translated)
+- `internal.sku_code` (should not)
+
+This makes bulk configuration easier.
+
+### 3. Review Technical Content
+
+Some content looks translatable but shouldn't be:
+- Model numbers
+- Certification codes (CE, UL, etc.)
+- Color codes
+- SKUs
+
+### 4. Test with Real Products
+
+After configuration:
+1. Check a product page in each language
+2. Verify metafield content displays correctly
+3. Ensure no mixed languages
+
+### 5. Handle Edge Cases
+
+**Brand names in metafields:**
+- Add to translation blacklist
+- They should stay unchanged
+
+**Measurement units:**
+- Consider localizing (cm vs. inches)
+- Or keep consistent across markets
+
+## Common Issues and Solutions
+
+### Issue: Metafield Not Appearing in Translation
+
+**Cause:** Field type might not be translatable (e.g., boolean, date)
+
+**Solution:** Only text-type metafields can be translated. For complex types, ensure the text portion is properly configured.
+
+### Issue: HTML Breaking in Rich Text
+
+**Cause:** Translation sometimes alters HTML structure
+
+**Solution:** LocaleFlow preserves HTML structure. If issues occur, check the source content for unusual formatting.
+
+### Issue: List Items Merging
+
+**Cause:** Some list metafields use special separators
+
+**Solution:** Verify the metafield is defined as a list type in Shopify, not a single text field with manual separators.
+
+## Metaobjects for Multilingual Stores
+
+### When to Use Metaobjects
+
+Metaobjects are ideal for:
+- Content that repeats across products (size guides)
+- Structured data (ingredient lists)
+- Reference data (color names)
+
+### Translation Approach
+
+1. Create the metaobject in your default language
+2. Let LocaleFlow translate all text fields
+3. Review and adjust as needed
+
+### Example: Color Swatch Metaobject
+
+Original (English):
+```
+Name: "Forest Green"
+Description: "A deep, natural green inspired by nature"
+Hex: "#228B22"
+```
+
+Translated (German):
+```
+Name: "Waldgrün"
+Description: "Ein tiefes, natürliches Grün inspiriert von der Natur"
+Hex: "#228B22" (unchanged)
+```
+
+## Checking Your Work
+
+### Manual Review
+
+For each language, check:
+1. Product pages with metafields
+2. Collection pages with metafield filters
+3. Any pages using metaobjects
+4. Theme sections pulling metafield data
+
+### Customer Feedback
+
+International customers will tell you if something's wrong. Monitor:
+- Support tickets about language issues
+- Reviews mentioning translation problems
+- Cart abandonment on international pages
+
+## Conclusion
+
+Metafield translation is crucial for a fully localized store. Key takeaways:
+
+1. **Audit your metafields** - Know what you have
+2. **Classify each field** - Translate vs. don't translate
+3. **Use field-level control** - LocaleFlow lets you be specific
+4. **Include metaobjects** - Don't forget structured data
+5. **Test thoroughly** - Check every product page
+
+With LocaleFlow, metafield translation is:
+- Automatic for configured fields
+- Synced when content changes
+- Granular enough for complex stores
+
+---
+
+[Start translating your metafields](https://apps.shopify.com/locale-flow) - try LocaleFlow free.
