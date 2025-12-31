@@ -16,8 +16,13 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// API Configuration
-const GEMINI_API_KEY = 'AIzaSyCqoGNcD_UjhyWN9fruQOw9Ro-aD6rPO-M'
+// API Configuration - Load from environment variable
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY
+if (!GEMINI_API_KEY) {
+  console.error('ERROR: GEMINI_API_KEY environment variable is not set')
+  console.error('Set it with: export GEMINI_API_KEY=your_key_here')
+  process.exit(1)
+}
 const client = new GoogleGenAI({ apiKey: GEMINI_API_KEY })
 
 // Models to try for image generation
