@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { VsComparison } from '../../components/compare/VsComparison';
+import { FAQ } from '../../components/FAQ';
+import { localflow, extendedCompetitors } from '../../data/competitors';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+
+const competitor = extendedCompetitors.find(c => c.slug === 't-lab')!;
+const pageTitle = `LocaleFlow vs ${competitor.name} | Shopify Translation App Comparison`;
+const pageDescription = `Compare LocaleFlow and ${competitor.name} for Shopify translation. See features, pricing, and which app is right for your store.`;
+
+const faqItems = [
+  {
+    question: `What's the main difference between LocaleFlow and ${competitor.name}?`,
+    answer: `${competitor.name} offers multi-LLM flexibility - you choose between DeepL, Google, or ChatGPT for translations. LocaleFlow uses Claude AI optimized for e-commerce with automatic sync. If you want to control your AI engine, ${competitor.name} gives options. If you want simplicity with automatic sync, LocaleFlow is better.`
+  },
+  {
+    question: `Does ${competitor.name} have auto-sync?`,
+    answer: `No, ${competitor.name} does not automatically sync translations when your content changes. You need to manually re-translate updated content. LocaleFlow automatically detects changes and updates translations.`
+  },
+  {
+    question: `Which app is easier to use?`,
+    answer: `LocaleFlow is simpler - one AI, automatic sync, set it and forget it. ${competitor.name} has more options (multiple AI engines, merchant control), which means more decisions and configuration for you.`
+  },
+  {
+    question: `Can I switch from ${competitor.name} to LocaleFlow?`,
+    answer: `Yes! Your existing translations are stored in Shopify's translation system. Install LocaleFlow, and it will work with your existing translations while managing updates going forward.`
+  }
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main class="pt-20">
+    <section class="section bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 reveal">
+          <a href="/compare" class="inline-flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to all comparisons
+          </a>
+        </div>
+
+        <div class="text-center mb-12 reveal">
+          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+            App Comparison
+          </span>
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            LocaleFlow vs {competitor.name}
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            {competitor.name} offers multi-LLM flexibility with {competitor.reviews.toLocaleString()}+ reviews.
+            Compare it to LocaleFlow's streamlined, automatic approach.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto reveal stagger-1">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-primary-200 text-center">
+            <div class="text-sm text-gray-500 mb-1">LocaleFlow</div>
+            <div class="text-2xl font-bold text-primary-600">{localflow.rating} stars</div>
+            <div class="text-sm text-gray-400">{localflow.reviews}+ reviews</div>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-center">
+            <div class="text-sm text-gray-500 mb-1">{competitor.name}</div>
+            <div class="text-2xl font-bold text-gray-700">{competitor.rating} stars</div>
+            <div class="text-sm text-gray-400">{competitor.reviews.toLocaleString()}+ reviews</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal">
+          <VsComparison client:visible localeflow={localflow} competitor={competitor} />
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Key Differences</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 reveal stagger-1">
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">{competitor.name}'s Approach</h3>
+            <ul class="space-y-3">
+              {competitor.strengths.map((strength) => (
+                <li class="flex items-start gap-2 text-gray-600">
+                  <span class="w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center shrink-0 mt-0.5 text-xs">+</span>
+                  <span>{strength}</span>
+                </li>
+              ))}
+              {competitor.weaknesses.map((weakness) => (
+                <li class="flex items-start gap-2 text-gray-600">
+                  <span class="w-5 h-5 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0 mt-0.5 text-xs">-</span>
+                  <span>{weakness}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="bg-primary-50 rounded-xl p-8 shadow-sm border border-primary-100">
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">LocaleFlow's Approach</h3>
+            <ul class="space-y-3">
+              {localflow.strengths.map((strength) => (
+                <li class="flex items-start gap-2 text-gray-700">
+                  <span class="w-5 h-5 rounded-full bg-primary-200 text-primary-700 flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
+                  <span>{strength}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+        </div>
+        <div class="reveal stagger-1">
+          <FAQ client:visible items={faqItems} />
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gradient-to-r from-primary-500 to-orange-500">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">Ready to Try LocaleFlow?</h2>
+        <p class="text-xl text-white/90 mb-8">Start your 7-day free trial. No credit card required.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://apps.shopify.com/localeflow" target="_blank" rel="noopener noreferrer" class="btn-primary bg-white text-primary-600 hover:bg-gray-100 inline-flex items-center justify-center gap-2">
+            Start Free Trial
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <a href="/compare" class="btn-secondary border-white/30 text-white hover:bg-white/10 inline-flex items-center justify-center gap-2">
+            Compare More Apps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

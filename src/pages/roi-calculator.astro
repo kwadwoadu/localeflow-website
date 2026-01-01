@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ROICalculator } from '../components/ROICalculator';
+import { FAQ } from '../components/FAQ';
+import { TrendingUp, Globe, DollarSign, Users } from 'lucide-react';
+
+const pageTitle = 'ROI Calculator | LocaleFlow - Shopify Translation App';
+const pageDescription = 'Calculate your potential revenue increase from translating your Shopify store. See projected ROI, payback period, and additional monthly revenue.';
+
+const faqItems = [
+  {
+    question: "How accurate are these projections?",
+    answer: "Our calculations are based on industry benchmarks from CSA Research and Shopify Markets data. The 'moderate' scenario reflects typical results - 76% of consumers prefer buying in their native language, and stores typically see a 30% conversion lift with localization. Actual results vary based on your products, markets, and execution."
+  },
+  {
+    question: "What does the 'Conservative' vs 'Optimistic' scenario mean?",
+    answer: "Conservative (13% lift) is for niche products or less competitive markets. Moderate (30% lift) represents typical e-commerce results - this is what most stores experience. Optimistic (50% lift) applies to high-demand products in major markets like China or Japan where localization has outsized impact."
+  },
+  {
+    question: "Why does current international traffic affect the results?",
+    answer: "If you already have international traffic without translation, those visitors are already converting (or bouncing). The calculator focuses on the untapped potential - visitors you're losing because your store isn't in their language."
+  },
+  {
+    question: "How is payback period calculated?",
+    answer: "Payback period = LocaleFlow monthly cost ($150) divided by your projected additional monthly revenue. If LocaleFlow generates $450/month in additional revenue, your payback is just 10 days."
+  },
+  {
+    question: "Do I need to translate to all selected markets at once?",
+    answer: "No! Start with your highest-potential markets. LocaleFlow supports unlimited languages, so you can add more as you grow. Many merchants start with 2-3 languages and expand from there."
+  }
+];
+
+const stats = [
+  { icon: Globe, value: '76%', label: 'of consumers prefer buying in their native language', source: 'CSA Research' },
+  { icon: TrendingUp, value: '30%', label: 'average conversion lift with localization', source: 'Shopify Markets' },
+  { icon: DollarSign, value: '40%', label: "won't buy from foreign language sites", source: 'Common Sense Advisory' },
+  { icon: Users, value: '72%', label: 'more likely to buy with native language product info', source: 'CSA Research' },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="section bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+            ROI Calculator
+          </span>
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            What's Your Translation ROI?
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            See exactly how much additional revenue you could generate by translating your Shopify store.
+            Enter your numbers and get personalized projections.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="section bg-white -mt-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal">
+          <ROICalculator client:visible />
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            The Data Behind Translation ROI
+          </h2>
+          <p class="text-xl text-gray-600">
+            Industry research consistently shows the impact of localization
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal stagger-1">
+          {stats.map((stat, idx) => (
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+              <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mx-auto mb-4">
+                <stat.icon className="w-6 h-6 text-primary-600" />
+              </div>
+              <div class="text-3xl font-bold text-primary-600 mb-2">{stat.value}</div>
+              <p class="text-gray-600 text-sm mb-2">{stat.label}</p>
+              <p class="text-xs text-gray-400">{stat.source}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            How We Calculate Your ROI
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 reveal stagger-1">
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+              1
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Market Potential</h3>
+            <p class="text-gray-600">
+              We calculate the revenue potential of your selected markets based on their e-commerce size and consumer behavior.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+              2
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Conversion Lift</h3>
+            <p class="text-gray-600">
+              We apply industry-standard conversion lift multipliers based on your scenario and market-specific data.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+              3
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Untapped Potential</h3>
+            <p class="text-gray-600">
+              We account for your existing international traffic to show the net new revenue from translation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section bg-gradient-to-r from-primary-500 to-orange-500">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <blockquote class="text-2xl md:text-3xl font-display text-white mb-6">
+          "After adding German and French translations, our European orders increased by 40% in the first month."
+        </blockquote>
+        <cite class="text-white/80 block">
+          - Shopify Plus merchant using LocaleFlow
+        </cite>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="reveal stagger-1">
+          <FAQ client:visible items={faqItems} />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Ready to Capture That Revenue?
+        </h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Start your 7-day free trial and see the results for yourself.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://apps.shopify.com/localeflow"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary inline-flex items-center justify-center gap-2"
+          >
+            Start Free Trial
+            <TrendingUp className="w-5 h-5" />
+          </a>
+          <a
+            href="/compare"
+            class="btn-secondary inline-flex items-center justify-center gap-2"
+          >
+            Compare Translation Apps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

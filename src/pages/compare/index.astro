@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { ComparisonTable } from '../../components/compare/ComparisonTable';
+import { FAQ } from '../../components/FAQ';
+import { localflow, mainCompetitors, extendedCompetitors } from '../../data/competitors';
+import { ArrowRight, Check, Zap, Globe, Shield } from 'lucide-react';
+
+const pageTitle = 'Compare Shopify Translation Apps | LocaleFlow vs Competitors';
+const pageDescription = 'Compare LocaleFlow with Langify, Weglot, Transcy, and more. See features, pricing, and ratings side-by-side.';
+
+const faqItems = [
+  {
+    question: "Which Shopify translation app is best for my store?",
+    answer: "It depends on your needs. LocaleFlow is best for stores wanting automatic sync and full metaobject support. Weglot works for small sites with limited content. Langify suits those on a tight budget who don't mind manual updates. Transcy offers a free tier for basic needs."
+  },
+  {
+    question: "Why is LocaleFlow more expensive than some alternatives?",
+    answer: "LocaleFlow's $150/month pricing includes unlimited languages, automatic content sync, full metaobject support, and custom AI prompts - features that cost extra or aren't available in cheaper alternatives. When you factor in add-ons and word limits, many 'cheaper' apps end up costing more."
+  },
+  {
+    question: "What is auto-sync and why does it matter?",
+    answer: "Auto-sync means when you update a product in your default language, LocaleFlow automatically updates the translations. Without auto-sync, you have to manually re-translate content every time you make changes - which wastes hours of your time."
+  },
+  {
+    question: "What are metaobjects and why should I care?",
+    answer: "Metaobjects are Shopify's way of storing custom data like size guides, product specs, or store locator information. Most translation apps can't translate metaobjects, leaving parts of your store untranslated. LocaleFlow fully supports metaobjects."
+  },
+  {
+    question: "Can I switch from another translation app to LocaleFlow?",
+    answer: "Yes! LocaleFlow works alongside Shopify's native translation system. Your existing translations are preserved, and LocaleFlow can take over managing new translations. Contact us for migration support."
+  }
+];
+
+const competitorPages = extendedCompetitors.map(c => ({
+  name: c.name,
+  slug: c.slug,
+  rating: c.rating,
+  reviews: c.reviews,
+  angle: c.ourAngle
+}));
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="section bg-gradient-to-b from-primary-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+            App Comparison
+          </span>
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Compare Shopify Translation Apps
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            See how LocaleFlow stacks up against Langify, Weglot, Transcy, and other popular translation apps.
+            Make an informed decision based on features, pricing, and real user ratings.
+          </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto reveal stagger-1">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-1">5.0</div>
+            <div class="text-gray-600">Star Rating</div>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-1">100%</div>
+            <div class="text-gray-600">Auto-Sync</div>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-1">Unlimited</div>
+            <div class="text-gray-600">Languages</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="section bg-white" id="comparison">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Feature-by-Feature Comparison
+          </h2>
+          <p class="text-xl text-gray-600">
+            Compare the top 5 Shopify translation apps side-by-side
+          </p>
+        </div>
+
+        <div class="card-elevated reveal stagger-1">
+          <ComparisonTable client:visible competitors={mainCompetitors} localeflow={localflow} />
+        </div>
+
+        <!-- Legend -->
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600 reveal stagger-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+              <Check className="w-4 h-4 text-green-600" />
+            </span>
+            <span>Included</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-500 text-xs font-bold">✕</span>
+            <span>Not Available</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 text-xs font-bold">−</span>
+            <span>Partial</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why LocaleFlow Section -->
+    <section class="section bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Merchants Choose LocaleFlow
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 reveal stagger-1">
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+              <Zap className="w-6 h-6 text-primary-600" />
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Automatic Sync</h3>
+            <p class="text-gray-600">
+              Update your content once. LocaleFlow automatically syncs translations across all languages. No manual re-translation needed.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+              <Globe className="w-6 h-6 text-primary-600" />
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Full Metaobject Support</h3>
+            <p class="text-gray-600">
+              The only app with complete metaobject translation. Size guides, specs, custom content - all translated automatically.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+              <Shield className="w-6 h-6 text-primary-600" />
+            </div>
+            <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Transparent Pricing</h3>
+            <p class="text-gray-600">
+              $150/month, unlimited everything. No word limits, no language surcharges, no surprise bills. What you see is what you pay.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Individual Comparisons Section -->
+    <section class="section bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Detailed Comparisons
+          </h2>
+          <p class="text-xl text-gray-600">
+            Deep-dive comparisons with specific competitors
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 reveal stagger-1">
+          {competitorPages.map((comp) => (
+            <a
+              href={`/compare/${comp.slug}`}
+              class="group bg-gray-50 hover:bg-primary-50 rounded-xl p-6 transition-all border border-gray-100 hover:border-primary-200"
+            >
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-semibold text-gray-900 group-hover:text-primary-700">{comp.name}</h3>
+                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-500 transition-transform group-hover:translate-x-1" />
+              </div>
+              <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                {comp.rating && (
+                  <>
+                    <span class="text-yellow-500">★</span>
+                    <span>{comp.rating}</span>
+                    <span>·</span>
+                  </>
+                )}
+                <span>{comp.reviews.toLocaleString()} reviews</span>
+              </div>
+              <p class="text-sm text-gray-600 line-clamp-2">{comp.angle}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-gradient-to-r from-primary-500 to-orange-500">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Try LocaleFlow?
+        </h2>
+        <p class="text-xl text-white/90 mb-8">
+          Start your 7-day free trial. No credit card required.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://apps.shopify.com/localeflow"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary bg-white text-primary-600 hover:bg-gray-100 inline-flex items-center justify-center gap-2"
+          >
+            Start Free Trial
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
+            href="/roi-calculator"
+            class="btn-secondary border-white/30 text-white hover:bg-white/10 inline-flex items-center justify-center gap-2"
+          >
+            Calculate Your ROI
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="reveal stagger-1">
+          <FAQ client:visible items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
