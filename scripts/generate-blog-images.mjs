@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * Generate LocaleFlow Blog Post Images using Gemini 2.5 Flash Image (Nano Banana)
+ * Generate Flowy Blog Header Images using Gemini 2.5 Flash Image
  *
- * Creates abstract conceptual hero images for blog posts
- * using translation/localization visual metaphors.
+ * Creates 9 unique Flowy mascot images for blog post headers.
+ * Each image features Flowy in a scene themed to the blog topic.
  *
  * Usage: GEMINI_API_KEY=your_key node scripts/generate-blog-images.mjs
  */
@@ -28,147 +28,140 @@ const client = new GoogleGenAI({ apiKey: GEMINI_API_KEY })
 // Model - Gemini 2.5 Flash Image (Nano Banana)
 const IMAGE_MODEL = 'gemini-2.5-flash-image'
 
-// Paths
-const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'blog', 'images')
+// Paths - Updated to correct location
+const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'images', 'blog')
 
-// Brand colors from LocaleFlow
-const BRAND_COLORS = {
-  primary: '#0EA5E9', // Sky blue
-  primaryDark: '#0284C7',
-  accent: '#8B5CF6', // Purple
-  background: '#F8FAFC', // Light slate
-  surface: '#FFFFFF'
-}
+// Master prompt template for Flowy character (from character-spec.md)
+const FLOWY_BASE = `Create a flat illustration of Flowy, LocaleFlow's mascot character, in a 16:9 wide composition suitable for a blog header.
 
-// Base style for all images
-const BASE_STYLE = `
-Create a modern, minimalist illustration in flat design style.
-Use these exact colors:
-- Primary accent: ${BRAND_COLORS.primary} (sky blue)
-- Secondary accent: ${BRAND_COLORS.accent} (purple)
-- Background: soft gradient from white to light blue (#E0F2FE to #F8FAFC)
+CHARACTER SPECIFICATION (CRITICAL - follow exactly):
+- Shape: Rounded speech bubble with small triangular tail at bottom-left
+- Body color: Warm coral gradient (#fb923c to #f97316 orange)
+- Eyes: Large expressive ovals in navy blue (#1e3a5a)
+- Cheeks: Subtle pink blush circles (#fecaca)
+- Smile: Simple curved line in navy (#1e3a5a)
+- Arms: Thin rounded limbs in coral (#ea580c) with mitten-style hands
+- The character looks like a friendly orange speech bubble with a face and arms
 
-Style requirements:
-- Clean flat illustration, no 3D effects
+STYLE REQUIREMENTS:
+- Flat illustration style with subtle gradients
 - Modern SaaS aesthetic
-- Soft shadows, rounded shapes
-- Professional and clean
-- Wide horizontal 16:9 composition
-- Leave breathing room on edges
+- Rounded, friendly shapes
+- Soft shadows, no harsh edges
+- Clean and professional
+- Wide 16:9 composition with Flowy positioned slightly off-center
+- Ample negative space for readability
 
-CRITICAL: Generate image with ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO LABELS, NO NUMBERS, NO WRITING of any kind anywhere in the image. Pure illustration only.
-`
+CRITICAL: Generate image with ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO LABELS, NO NUMBERS, NO WRITING of any kind anywhere in the image. Pure illustration only.`
 
-// Blog image configurations
+// Blog image configurations with Flowy-themed scenes
 const BLOG_IMAGES = [
   // Comparison posts (4)
   {
-    filename: 'localeflow-vs-langify.png',
-    title: 'LocaleFlow vs Langify',
-    prompt: `${BASE_STYLE}
-
-Scene: Two stylized app interface cards side by side with a "VS" symbol between them.
-Left card shows a modern, streamlined interface with flow lines connecting elements (representing LocaleFlow's sync feature).
-Right card shows a more traditional grid-based interface.
-Above both cards, floating translation bubbles with different language icons (globe, flags as abstract shapes).
-Include subtle checkmarks on the left side suggesting advantages.
-Color the left card with ${BRAND_COLORS.primary}, right card in neutral gray.`
-  },
-  {
-    filename: 'localeflow-vs-weglot.png',
-    title: 'LocaleFlow vs Weglot',
-    prompt: `${BASE_STYLE}
-
-Scene: Split composition showing two different approaches to translation.
-Left side: Clean Shopify store mockup with automatic sync arrows flowing between product cards (LocaleFlow).
-Right side: More complex setup with external widget overlay.
-Center: Large comparison icon or balance scale metaphor.
-Include floating language bubbles (abstract globe segments, translation arrows).
-Emphasize the simplicity on the left vs complexity on the right.`
-  },
-  {
     filename: 'localeflow-vs-translate-and-adapt.png',
     title: 'LocaleFlow vs Translate & Adapt',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: Shopify-themed comparison showing automation vs manual.
-Left: Flowing automatic process with gears and sync symbols working autonomously.
-Right: Manual/hands-on approach with more steps shown.
-Include Shopify bag icon subtly in the composition.
-Show multiple language flags as abstract geometric shapes.
-Central focus on the automation difference.`
+Scene: Flowy standing proudly holding a gold medal or trophy, radiating confidence.
+One arm holds the trophy high, the other gives a subtle thumbs up.
+Flowy has a winning, confident smile with eyes squinting happily.
+Small sparkles around the trophy.
+Background: Soft gradient from cream (#FEF3C7) to light green (#D1FAE5).
+Position Flowy slightly left of center with trophy visible on right.`
+  },
+  {
+    filename: 'localeflow-vs-langify.png',
+    title: 'LocaleFlow vs Langify',
+    prompt: `${FLOWY_BASE}
+
+Scene: Flowy in an energetic, confident pose with one arm flexed showing strength.
+The character looks determined and powerful but friendly.
+Small energy burst or star effects around Flowy to show vitality.
+Energetic, competitive but friendly expression.
+Background: Gradient from light blue (#DBEAFE) to cream (#FEF3C7).
+Position Flowy right of center with energy effects on the left side.`
   },
   {
     filename: 'localeflow-vs-transcy.png',
     title: 'LocaleFlow vs Transcy',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: Feature comparison visualization with floating feature cards.
-Two app interfaces showing different feature sets.
-Left side shows more connected/flowing features (sync emphasis).
-Include currency symbols, language icons, and store elements.
-Subtle award/star icons near LocaleFlow representation.
-Professional competitive comparison aesthetic.`
+Scene: Flowy standing next to a large stylized checklist or clipboard.
+Several green checkmark icons floating nearby, suggesting completed tasks.
+Flowy has a satisfied, accomplished expression with a confident smile.
+One hand gestures toward the checkmarks proudly.
+Background: Light green gradient (#D1FAE5).
+Position Flowy on the left with checklist elements on the right side.`
+  },
+  {
+    filename: 'localeflow-vs-weglot.png',
+    title: 'LocaleFlow vs Weglot',
+    prompt: `${FLOWY_BASE}
+
+Scene: Flowy standing victoriously on a stylized podium or pedestal.
+Both arms raised high in celebration, confetti and sparkles all around.
+Triumphant expression with eyes closed in joy, big happy smile.
+Background: Gradient from light purple (#EDE9FE) to cream (#FEF3C7).
+Center Flowy on the podium, celebration elements above and around.`
   },
   // Guide posts (5)
   {
     filename: 'shopify-markets-translation-guide.png',
     title: 'Shopify Markets Setup Guide',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: World map with glowing market regions connected by flowing lines.
-Central Shopify store icon with expansion arrows going to different regions.
-Multiple storefront icons around a globe showing international reach.
-Include subtle currency and language symbols floating around.
-Emphasis on global expansion and market setup.`
-  },
-  {
-    filename: 'shopify-translation-mistakes.png',
-    title: 'Translation Mistakes to Avoid',
-    prompt: `${BASE_STYLE}
-
-Scene: Warning/caution themed illustration with corrective elements.
-Show wrong way (red X) and right way (green checkmark) approaches.
-Include broken translation bubble being repaired or fixed.
-Document with error marks being corrected.
-Educational, helpful tone - not scary, but informative.
-Include subtle gear/tools imagery suggesting fixes.`
+Scene: Flowy standing with a stylized globe floating nearby.
+Small abstract flag shapes from various countries floating around.
+Arms slightly spread in a welcoming, expansive gesture.
+Worldly, knowledgeable expression with a friendly smile.
+Background: Gradient from light blue (#DBEAFE) to light purple (#EDE9FE).
+Position Flowy center-left with globe and flags on the right side.`
   },
   {
     filename: 'multilanguage-seo-guide.png',
     title: 'Multi-Language SEO Guide',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: Search and language optimization visualization.
-Central search bar or magnifying glass with multiple language bubbles.
-Upward trending graph/chart showing SEO growth.
-Globe with connected search nodes in different regions.
-Include abstract hreflang tag representations (connected link symbols).
-Professional SEO/marketing aesthetic.`
+Scene: Flowy looking through or holding a large magnifying glass.
+Small upward arrows and chart elements suggesting growth nearby.
+Curious, investigative expression, eyes focused and interested.
+Background: Light blue gradient (#DBEAFE).
+Position Flowy right of center, magnifying glass prominent on left side.`
+  },
+  {
+    filename: 'shopify-translation-mistakes.png',
+    title: 'Translation Mistakes to Avoid',
+    prompt: `${FLOWY_BASE}
+
+Scene: Flowy in a thinking pose, one hand raised to chin.
+A small stylized warning triangle or caution icon floating nearby (friendly, not scary).
+Eyes looking upward thoughtfully, slight concern but helpful expression.
+Background: Gradient from cream (#FEF3C7) to soft pink (#FEE2E2).
+Position Flowy in center with warning element to the side.`
   },
   {
     filename: 'translate-metafields-guide.png',
     title: 'Metafields Translation Guide',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: Technical but accessible data visualization.
-Product card with extending data fields/metafields being translated.
-Show structured data transforming between languages.
-Include database/field icons with translation arrows.
-Multiple product attributes floating and connecting.
-Developer-friendly but approachable aesthetic.`
+Scene: Flowy in a working pose, arms engaged as if conducting or organizing.
+Small gear icons and data flow lines floating around the character.
+Focused, productive expression with determined smile.
+Technical elements arranged neatly around Flowy.
+Background: Light blue gradient (#DBEAFE) to cream (#FEF3C7).
+Position Flowy slightly left with technical elements on right.`
   },
   {
     filename: 'why-agencies-choose-localeflow.png',
     title: 'Why Agencies Choose LocaleFlow',
-    prompt: `${BASE_STYLE}
+    prompt: `${FLOWY_BASE}
 
-Scene: Agency/team collaboration visualization.
-Multiple client storefronts being managed from central dashboard.
-Show efficiency with connected client icons and streamlined workflow.
-Include revenue/growth symbols and partner handshake imagery.
-Professional B2B aesthetic with premium feel.
-Emphasis on scale and partnership.`
+Scene: Flowy celebrating enthusiastically with both arms raised high.
+Confetti and sparkles all around the character.
+Small business icons nearby (briefcase shape, handshake symbol, growth arrow).
+Enthusiastic, welcoming expression with big joyful smile.
+Background: Gradient from light green (#D1FAE5) to cream (#FEF3C7).
+Center Flowy with celebration and business elements distributed around.`
   }
 ]
 
@@ -233,8 +226,8 @@ function saveImage(imageBytes, filename) {
  */
 async function main() {
   console.log('='.repeat(60))
-  console.log('LocaleFlow Blog Image Generator')
-  console.log('Using Gemini 2.5 Flash')
+  console.log('Flowy Blog Image Generator')
+  console.log('9 unique Flowy mascot images (16:9 aspect ratio)')
   console.log('='.repeat(60))
   console.log('')
 
@@ -293,12 +286,18 @@ async function main() {
 
   console.log('\n' + '='.repeat(60))
   console.log('Quality Checklist (verify manually):')
-  console.log('  [ ] No text in images')
-  console.log('  [ ] Brand colors used (sky blue #0EA5E9, purple #8B5CF6)')
-  console.log('  [ ] Clean flat design style')
+  console.log('  [ ] Flowy body is coral (#f97316 base)')
+  console.log('  [ ] Eyes are navy (#1e3a5a)')
+  console.log('  [ ] Speech bubble shape with tail')
+  console.log('  [ ] Flat style (no 3D)')
+  console.log('  [ ] NO TEXT in images')
   console.log('  [ ] 16:9 aspect ratio')
-  console.log('  [ ] Professional SaaS aesthetic')
   console.log('='.repeat(60))
+
+  console.log('\nNext steps:')
+  console.log('1. Review generated images for quality')
+  console.log('2. Convert to WebP: for f in public/images/blog/*.png; do cwebp -q 85 "$f" -o "${f%.png}.webp"; done')
+  console.log('3. Deploy: npm run build && wrangler pages deploy dist --project-name=localeflow')
 }
 
 main().catch(console.error)
