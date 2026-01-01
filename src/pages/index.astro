@@ -38,33 +38,45 @@ const faqItems = [
 
       <div class="relative section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 reveal">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Automatic sync when content changes
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+            <!-- Text content -->
+            <div class="text-center lg:text-left flex-1">
+              <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6 reveal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Automatic sync when content changes
+              </div>
+
+              <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight reveal">
+                Translate your Shopify store.
+                <span class="text-gradient">Automatically.</span>
+              </h1>
+
+              <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed reveal">
+                LocaleFlow keeps your translations in sync when content changes. Products, pages, menus - all translated and updated without lifting a finger.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal">
+                <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
+                  Start Translating
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a href="#how-it-works" class="btn-secondary text-lg px-8 py-4">
+                  See How It Works
+                </a>
+              </div>
             </div>
 
-            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight reveal">
-              Translate your Shopify store.
-              <span class="text-gradient">Automatically.</span>
-            </h1>
-
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed reveal">
-              LocaleFlow keeps your translations in sync when content changes. Products, pages, menus - all translated and updated without lifting a finger.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
-              <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary text-lg px-8 py-4">
-                Start Translating
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-              <a href="#how-it-works" class="btn-secondary text-lg px-8 py-4">
-                See How It Works
-              </a>
+            <!-- Flowy mascot -->
+            <div class="flex-shrink-0 reveal">
+              <img
+                src="/flowy/flowy-waving.webp"
+                alt="Flowy, the LocaleFlow mascot, waving hello"
+                class="w-48 md:w-64 lg:w-80 h-auto drop-shadow-xl animate-wave origin-bottom"
+              />
             </div>
           </div>
         </div>
@@ -173,7 +185,7 @@ const faqItems = [
           <div class="grid md:grid-cols-3 gap-12 relative z-10">
             <!-- Step 1 -->
             <div class="text-center reveal stagger-1">
-              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-lg shadow-primary-500/30">
                 1
               </div>
               <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Install & connect</h3>
@@ -182,7 +194,7 @@ const faqItems = [
 
             <!-- Step 2 -->
             <div class="text-center reveal stagger-2">
-              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-lg shadow-primary-500/30">
                 2
               </div>
               <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Choose languages</h3>
@@ -191,7 +203,7 @@ const faqItems = [
 
             <!-- Step 3 -->
             <div class="text-center reveal stagger-3">
-              <div class="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-primary-500/30">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-lg shadow-primary-500/30">
                 3
               </div>
               <h3 class="font-display text-xl font-semibold text-gray-900 mb-3">Go live</h3>
@@ -285,19 +297,34 @@ const faqItems = [
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6 reveal">
-          Ready to go global?
-        </h2>
-        <p class="text-xl text-primary-100 mb-10 max-w-2xl mx-auto reveal">
-          Start reaching international customers today. Set up takes minutes.
-        </p>
-        <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 reveal">
-          Start Translating
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <!-- Text content -->
+          <div class="text-center lg:text-left flex-1">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6 reveal">
+              Ready to go global?
+            </h2>
+            <p class="text-xl text-primary-100 mb-10 max-w-2xl reveal">
+              Start reaching international customers today. Set up takes minutes.
+            </p>
+            <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-primary-600 bg-white rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 reveal">
+              Start Translating
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Flowy celebrating -->
+          <div class="flex-shrink-0 reveal hidden lg:block">
+            <img
+              src="/flowy/flowy-celebrating.webp"
+              alt="Flowy celebrating your success"
+              class="w-40 md:w-48 lg:w-56 h-auto drop-shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </section>
   </main>

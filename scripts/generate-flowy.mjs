@@ -53,14 +53,14 @@ STYLE REQUIREMENTS:
 
 CRITICAL: Generate image with ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO LABELS, NO NUMBERS, NO WRITING of any kind anywhere in the image. Pure illustration only.`
 
-// Flowy poses to generate
+// Flowy poses to generate (with white backgrounds for easy removal)
 const FLOWY_POSES = [
   {
     filename: 'flowy-waving.png',
     name: 'Waving',
     pose: `Pose: Flowy facing forward with one arm raised in a friendly wave, open palm.
 Body slightly tilted. Cheerful expression with open smile.
-Background: Soft cream gradient (#FEF3C7)`
+Background: Pure solid white (#FFFFFF), completely uniform, no gradients, no patterns, no shadows on background.`
   },
   {
     filename: 'flowy-celebrating.png',
@@ -68,7 +68,7 @@ Background: Soft cream gradient (#FEF3C7)`
     pose: `Pose: Flowy with both arms raised triumphantly above head.
 Eyes closed in happy squint. Wide open smile.
 Confetti and sparkles around character.
-Background: Light green gradient (#D1FAE5)`
+Background: Pure solid white (#FFFFFF), completely uniform, no gradients, no patterns, no shadows on background.`
   },
   {
     filename: 'flowy-thinking.png',
@@ -76,14 +76,14 @@ Background: Light green gradient (#D1FAE5)`
     pose: `Pose: Flowy with one hand raised to chin area in thinking pose.
 Eyes looking upward and to the side.
 Slight head tilt. Thoughtful expression.
-Background: Light blue gradient (#DBEAFE)`
+Background: Pure solid white (#FFFFFF), completely uniform, no gradients, no patterns, no shadows on background.`
   },
   {
     filename: 'flowy-thumbsup.png',
     name: 'Thumbs Up',
     pose: `Pose: Flowy with one arm extended with clear thumbs up gesture.
 Confident, approving smile. Eyes bright and engaged.
-Background: Light green gradient (#D1FAE5)`
+Background: Pure solid white (#FFFFFF), completely uniform, no gradients, no patterns, no shadows on background.`
   },
   {
     filename: 'flowy-translating.png',
@@ -92,7 +92,7 @@ Background: Light green gradient (#D1FAE5)`
 Floating language code bubbles (EN, ES, FR) on each side with flowing arrows between them.
 Focused but happy expression.
 Include subtle translation arrows connecting the bubbles.
-Background: Light blue gradient (#DBEAFE)`
+Background: Pure solid white (#FFFFFF), completely uniform, no gradients, no patterns, no shadows on background.`
   }
 ]
 

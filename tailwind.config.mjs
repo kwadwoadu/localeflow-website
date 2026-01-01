@@ -148,6 +148,12 @@ export default {
           "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
           "100%": { transform: "translate(0px, 0px) scale(1)" },
         },
+        "wave": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "25%": { transform: "rotate(5deg) translateY(-3px)" },
+          "50%": { transform: "rotate(-3deg)" },
+          "75%": { transform: "rotate(3deg) translateY(-2px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -158,6 +164,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "blob": "blob 7s infinite",
+        "wave": "wave 2.5s ease-in-out infinite",
       },
     },
   },
