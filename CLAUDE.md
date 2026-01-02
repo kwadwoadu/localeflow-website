@@ -105,10 +105,10 @@ LocaleFlow is NOW LIVE on Shopify App Store:
 - Text: "Join our partner program for revenue share..."
 - Button: "Become a Partner" -> `/partners#partner-form`
 
-### Footer Link Registry (Core Links)
-Protected by `.claude/hooks/footer-protection.sh`. Simplified post-launch.
+### Footer Link Registry
+Protected by `.claude/hooks/footer-protection.sh`. All links below must remain in footer.
 
-**Required Links:**
+**Core Links:**
 - /compare
 - /roi-calculator
 - /blog
@@ -116,7 +116,23 @@ Protected by `.claude/hooks/footer-protection.sh`. Simplified post-launch.
 - /privacy
 - /terms
 
-Individual comparison pages are linked FROM /compare index, not footer.
+**Comparison Blog Posts (SEO):**
+- /blog/localeflow-vs-langify
+- /blog/localeflow-vs-weglot
+- /blog/localeflow-vs-transcy
+- /blog/localeflow-vs-translate-and-adapt
+
+**Comparison Pages (SEO):**
+- /compare/hextom
+- /compare/t-lab
+- /compare/transtore
+- /compare/vt-labs
+- /compare/locales-ai
+- /compare/ciwi
+- /compare/langwill
+- /compare/liquid-translator
+
+When adding new comparison pages or vs blog posts, add to footer too.
 
 ---
 
@@ -138,12 +154,12 @@ LocaleFlow website has automated hooks matching Signkit's pattern:
 
 | When You See | Do This |
 |--------------|---------|
-| Creating `/compare/*.astro` | Add to /compare index page's grid |
-| Creating `/blog/*-vs-*.md` | Normal blog post, no special footer handling needed |
+| Creating `/compare/*.astro` | Add to /compare index grid AND Footer.astro |
+| Creating `/blog/*-vs-*.md` | Add to Footer.astro comparison links grid |
 | Any rating/review claim | Verify source or remove - never fabricate |
 | "Get Early Access" CTA | Change to "Start translating" -> app store |
 | Pre-launch messaging | Update to post-launch messaging |
-| Editing Footer.astro | Hook will BLOCK if core links removed |
+| Editing Footer.astro | Hook will BLOCK if any of 18 required links removed |
 | Review/rating comparisons | Remove if we have few reviews - focus on features |
 
 ---

@@ -71,8 +71,8 @@ fi
 
 if [[ "$BLOCKED" == "true" ]]; then
     echo "" >&2
-    echo "Footer.astro is protected. Core links must remain." >&2
-    echo "Required: /compare, /roi-calculator, /blog, /partners, /privacy, /terms" >&2
+    echo "Footer.astro is protected. All 18 required links must remain." >&2
+    echo "See CLAUDE.md Footer Link Registry for the full list." >&2
     exit 2
 fi
 

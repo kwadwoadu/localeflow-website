@@ -39,14 +39,14 @@ CORRECT: State actual supported languages or "unlimited languages"
 ### Footer Links
 
 ```
-WRONG: Removing any core link from Footer
-CORRECT: All 6 core links always present (/compare, /roi-calculator, /blog, /partners, /privacy, /terms)
-
-WRONG: Cluttered footer with 14+ individual vs links
-CORRECT: Clean 4-column layout, individual comparisons linked from /compare index
+WRONG: Removing any of 18 required links from Footer
+CORRECT: All 18 links always present (6 core + 4 blog comparisons + 8 compare pages)
 
 WRONG: Footer grid breaking on mobile
-CORRECT: Responsive 2-column layout
+CORRECT: Responsive 2-column layout for comparison links
+
+WRONG: Adding comparison page without footer link
+CORRECT: New /compare/* or /blog/*-vs-* pages must be added to Footer.astro
 ```
 
 ### CTAs (Post-Launch State)
@@ -102,13 +102,13 @@ CORRECT: Verifiable data from actual app store listings with date
 
 | When You See | Do This |
 |--------------|---------|
-| Creating `/compare/*.astro` | Add to /compare index page grid |
-| Creating `/blog/*-vs-*.md` | Normal blog post |
+| Creating `/compare/*.astro` | Add to /compare index grid AND Footer.astro |
+| Creating `/blog/*-vs-*.md` | Add to Footer.astro comparison links grid |
 | Any rating/review claim | Verify source or remove |
 | "Get Early Access" CTA | Change to "Start translating" -> app store |
 | "Coming Soon" text | Remove - app is now live |
 | Review/rating comparisons | Remove social proof section entirely |
-| Editing Footer.astro | Hook will BLOCK if core links removed |
+| Editing Footer.astro | Hook will BLOCK if any of 18 required links removed |
 
 ---
 
