@@ -24,7 +24,7 @@ elif [[ "$TOOL_NAME" == "Edit" ]]; then
 fi
 
 # Required links that must exist in footer
-# Core links + all comparison pages for SEO internal linking
+# Core links + all comparison pages/posts for SEO internal linking
 REQUIRED_LINKS=(
     "/compare"
     "/roi-calculator"
@@ -32,14 +32,18 @@ REQUIRED_LINKS=(
     "/partners"
     "/privacy"
     "/terms"
-    "/compare/langwill"
-    "/compare/ciwi"
+    "/blog/localeflow-vs-langify"
+    "/blog/localeflow-vs-weglot"
+    "/blog/localeflow-vs-transcy"
+    "/blog/localeflow-vs-translate-and-adapt"
     "/compare/hextom"
-    "/compare/locales-ai"
     "/compare/t-lab"
-    "/compare/liquid-translator"
     "/compare/transtore"
     "/compare/vt-labs"
+    "/compare/locales-ai"
+    "/compare/ciwi"
+    "/compare/langwill"
+    "/compare/liquid-translator"
 )
 
 BLOCKED=false
