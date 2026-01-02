@@ -1,5 +1,30 @@
 # LocaleFlow Website Changelog
 
+## [2026-01-02] Fix Blog Category Filtering
+
+**Type:** Bug Fix
+**Commit:** 887eff1
+
+### Summary
+Fixed blog category filtering which wasn't working due to Astro's static site generation. Query parameters (`/blog?category=comparisons`) were ignored because the filtering logic only ran at build time.
+
+### Solution
+Implemented static category pages using Astro's dynamic routing (`getStaticPaths()`). Each category now has its own pre-rendered page.
+
+### Changes
+- Created `/src/pages/blog/category/[category].astro` - generates static pages for each category
+- Updated `BlogCategoryNav.astro` - links now use `/blog/category/{slug}` instead of query params
+- Simplified `blog/index.astro` - removed query param logic, always shows all posts
+- Updated `blog/[...slug].astro` - breadcrumb and category badge links use static paths
+
+### New URLs
+- `/blog` - All posts
+- `/blog/category/guides` - Guides only
+- `/blog/category/comparisons` - Comparisons only
+- (7 category pages total)
+
+---
+
 ## [2026-01-02] Post-Launch Content Overhaul
 
 **Type:** Feature
