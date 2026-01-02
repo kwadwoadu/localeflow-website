@@ -137,7 +137,34 @@ LocaleFlow website has automated hooks matching Signkit's pattern:
 **Active Hooks:**
 | Hook | Trigger | Purpose |
 |------|---------|---------|
-| footer-protection.sh | Edit/Write | Warns when Footer.astro edits remove required links |
+| footer-protection.sh | PreToolUse (Edit/Write) | **BLOCKS** edits that remove required links from Footer.astro |
+| auto-format.sh | PostToolUse (Edit/Write) | Auto-formats Astro/TS/TSX files with Prettier |
+
+---
+
+## Proactive Triggers
+
+| When You See | Do This |
+|--------------|---------|
+| Creating `/compare/*.astro` | ALSO add link to Footer.astro Resources section |
+| Creating `/blog/*-vs-*.md` | ALSO add link to Footer.astro Resources section |
+| Any rating/review claim | Verify source or remove - never fabricate |
+| "Start Free Trial" CTA | Change to "Get Early Access" (pre-launch) |
+| Link to apps.shopify.com | Change to /partners#partner-form |
+| Editing Footer.astro | Hook will BLOCK if required links removed |
+| Content with claims | Check against Content Rules above |
+
+---
+
+## Website Expert Agent
+
+Specialized agent at `/agents/website-expert.md` with:
+- CORRECT/WRONG patterns for content
+- Protected files list
+- Key files registry
+- Deployment checklist
+
+Consult this agent for any website content or structure questions.
 
 ---
 
