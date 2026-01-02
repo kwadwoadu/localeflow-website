@@ -23,8 +23,8 @@ elif [[ "$TOOL_NAME" == "Edit" ]]; then
     NEW_STRING=$(echo "$INPUT" | jq -r '.tool_input.new_string // empty')
 fi
 
-# Required links that must exist in footer (simplified list post-launch)
-# Individual compare pages are linked from /compare index, not footer
+# Required links that must exist in footer
+# Core links + all comparison pages for SEO internal linking
 REQUIRED_LINKS=(
     "/compare"
     "/roi-calculator"
@@ -32,6 +32,14 @@ REQUIRED_LINKS=(
     "/partners"
     "/privacy"
     "/terms"
+    "/compare/langwill"
+    "/compare/ciwi"
+    "/compare/hextom"
+    "/compare/locales-ai"
+    "/compare/t-lab"
+    "/compare/liquid-translator"
+    "/compare/transtore"
+    "/compare/vt-labs"
 )
 
 BLOCKED=false
