@@ -1,21 +1,24 @@
 ---
-import BlogLayout from '../../layouts/BlogLayout.astro';
-import BlogCard from '../../components/blog/BlogCard.astro';
-import BlogCategoryNav from '../../components/blog/BlogCategoryNav.astro';
-import { getAllPosts, getFeaturedPosts, paginatePosts } from '../../lib/blog';
-import { generateBlogIndexSchema } from '../../lib/seo';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import BlogCard from '../../../components/blog/BlogCard.astro';
+import BlogCategoryNav from '../../../components/blog/BlogCategoryNav.astro';
+import { getPostsByCategory, paginatePosts, BLOG_CATEGORIES, type BlogCategory } from '../../../lib/blog';
+import { generateBlogIndexSchema } from '../../../lib/seo';
 
-// Fetch all posts (category filtering is now on /blog/category/[category])
-const allPosts = await getAllPosts();
-const featuredPosts = await getFeaturedPosts(1);
+export async function getStaticPaths() {
+  const categories = Object.keys(BLOG_CATEGORIES) as BlogCategory[];
+  return categories.map((category) => ({
+    params: { category },
+  }));
+}
+
+const { category } = Astro.params as { category: BlogCategory };
+const categoryInfo = BLOG_CATEGORIES[category];
+const allPosts = await getPostsByCategory(category);
 const { posts, totalPages, currentPage, hasNextPage, hasPrevPage } = paginatePosts(allPosts, 1, 12);
 
-// Show featured post on first page
-const showFeatured = currentPage === 1 && featuredPosts.length > 0;
-const displayPosts = showFeatured ? posts.filter(p => p.id !== featuredPosts[0].id) : posts;
-
-const title = 'Blog';
-const description = 'Guides, tutorials, and best practices for Shopify store translation and localization.';
+const title = `${categoryInfo.label} - LocaleFlow Blog`;
+const description = categoryInfo.description;
 ---
 
 <BlogLayout title={title} description={description}>
@@ -28,7 +31,7 @@ const description = 'Guides, tutorials, and best practices for Shopify store tra
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="font-display font-bold text-4xl md:text-5xl text-gray-900">
-          LocaleFlow Blog
+          {categoryInfo.label}
         </h1>
         <p class="mt-4 text-lg text-gray-600">
           {description}
@@ -37,43 +40,37 @@ const description = 'Guides, tutorials, and best practices for Shopify store tra
 
       <!-- Category Navigation -->
       <div class="mt-10 flex justify-center">
-        <BlogCategoryNav activeCategory="all" />
+        <BlogCategoryNav activeCategory={category} />
       </div>
     </div>
   </section>
 
-  <!-- Featured Post -->
-  {showFeatured && (
-    <section class="py-12 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-2 mb-6">
-          <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-          <span class="text-sm font-medium text-gray-600">Featured</span>
-        </div>
-        <BlogCard post={featuredPosts[0]} featured />
-      </div>
-    </section>
-  )}
-
   <!-- Posts Grid -->
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {displayPosts.length > 0 ? (
+      {posts.length > 0 ? (
         <>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayPosts.map((post) => (
+            {posts.map((post) => (
               <BlogCard post={post} />
             ))}
           </div>
 
-          <!-- Pagination (if needed in future) -->
+          <!-- Pagination -->
           {totalPages > 1 && (
             <nav class="mt-12 flex justify-center gap-2">
+              {hasPrevPage && (
+                <a
+                  href={`/blog/category/${category}`}
+                  class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                >
+                  Previous
+                </a>
+              )}
+
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <a
-                  href={page === 1 ? '/blog' : `/blog/page/${page}`}
+                  href={page === 1 ? `/blog/category/${category}` : `/blog/category/${category}/${page}`}
                   class={`px-4 py-2 rounded-lg transition-colors ${
                     page === currentPage
                       ? 'bg-primary-600 text-white'
@@ -83,6 +80,15 @@ const description = 'Guides, tutorials, and best practices for Shopify store tra
                   {page}
                 </a>
               ))}
+
+              {hasNextPage && (
+                <a
+                  href={`/blog/category/${category}/2`}
+                  class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                >
+                  Next
+                </a>
+              )}
             </nav>
           )}
         </>
@@ -93,6 +99,12 @@ const description = 'Guides, tutorials, and best practices for Shopify store tra
           </svg>
           <h3 class="mt-4 font-display font-semibold text-xl text-gray-900">No posts yet</h3>
           <p class="mt-2 text-gray-600">Check back soon for new content!</p>
+          <a href="/blog" class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+            View all posts
+            <svg class="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       )}
     </div>

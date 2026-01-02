@@ -57,7 +57,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(post);
         </li>
         <li class="text-gray-400">/</li>
         <li>
-          <a href={`/blog?category=${category}`} class="text-gray-500 hover:text-primary-600 transition-colors">
+          <a href={`/blog/category/${category}`} class="text-gray-500 hover:text-primary-600 transition-colors">
             {categoryInfo.label}
           </a>
         </li>
@@ -72,7 +72,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(post);
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-4">
         <a
-          href={`/blog?category=${category}`}
+          href={`/blog/category/${category}`}
           class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors"
         >
           {categoryInfo.label}
