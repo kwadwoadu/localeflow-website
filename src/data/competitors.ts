@@ -39,9 +39,9 @@ export const localflow: Competitor = {
   name: 'LocaleFlow',
   slug: 'localeflow',
   tagline: 'AI-powered Shopify translation that syncs automatically',
-  appStoreUrl: 'https://apps.shopify.com/localeflow',
-  rating: 5.0,
-  reviews: 23,
+  appStoreUrl: '', // Not yet on Shopify App Store
+  rating: null, // Not yet on Shopify App Store
+  reviews: 0,
   pricing: {
     base: '$150/mo',
     trueCost: '$150/mo',
@@ -66,7 +66,6 @@ export const localflow: Competitor = {
     'Full metaobject support',
     'Custom AI prompts for brand voice',
     'Transparent pricing',
-    '5.0 star rating',
   ],
   weaknesses: [],
   ourAngle: '',
@@ -307,7 +306,7 @@ export const extendedCompetitors: Competitor[] = [
     },
     strengths: ['Low pricing', 'GPT-4 included', 'Custom prompts', 'Real-time sync'],
     weaknesses: ['New app, unproven at scale', 'No metaobject support', 'Limited track record'],
-    ourAngle: 'Established reliability with 5.0 rating',
+    ourAngle: 'Established reliability with full metaobject support',
     targetAudience: 'Budget-conscious stores',
     isAINative: true,
   },
@@ -315,7 +314,7 @@ export const extendedCompetitors: Competitor[] = [
     id: 'locales-ai',
     name: 'Locales.ai',
     slug: 'locales-ai',
-    tagline: 'Enterprise AI translation with GPT-5',
+    tagline: 'Enterprise AI translation',
     appStoreUrl: 'https://apps.shopify.com/locales-ai',
     rating: null,
     reviews: 25,
@@ -336,7 +335,7 @@ export const extendedCompetitors: Competitor[] = [
     },
     ai: {
       type: 'native',
-      engines: ['GPT-5.1', 'Proprietary'],
+      engines: ['GPT-4', 'Proprietary'],
     },
     strengths: ['Enterprise-grade', 'Ex-Microsoft/Google team', 'Page builder support'],
     weaknesses: ['Unclear pricing', 'Enterprise complexity', 'No metaobject support'],

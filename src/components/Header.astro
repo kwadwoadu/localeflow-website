@@ -27,12 +27,6 @@ const { variant = 'default' } = Astro.props;
         <a href="/#how-it-works" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
           How It Works
         </a>
-        <a href="/compare" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
-          Compare
-        </a>
-        <a href="/roi-calculator" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
-          ROI Calculator
-        </a>
         <a href="/blog" class="px-4 py-2 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200">
           Blog
         </a>
@@ -51,14 +45,9 @@ const { variant = 'default' } = Astro.props;
             Become a Partner
           </a>
         ) : (
-          <>
-            <a href="/partners" class="btn-ghost text-sm">
-              Partner Program
-            </a>
-            <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary">
-              Start Translating
-            </a>
-          </>
+          <a href="/partners#partner-form" class="btn-primary">
+            Get Early Access
+          </a>
         )}
       </div>
 
@@ -86,12 +75,6 @@ const { variant = 'default' } = Astro.props;
         <a href="/#how-it-works" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
           How It Works
         </a>
-        <a href="/compare" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
-          Compare
-        </a>
-        <a href="/roi-calculator" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
-          ROI Calculator
-        </a>
         <a href="/blog" class="px-4 py-3 text-gray-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all">
           Blog
         </a>
@@ -107,8 +90,8 @@ const { variant = 'default' } = Astro.props;
               Become a Partner
             </a>
           ) : (
-            <a href="https://apps.shopify.com/locale-flow" target="_blank" rel="noopener" class="btn-primary w-full justify-center">
-              Start Translating
+            <a href="/partners#partner-form" class="btn-primary w-full justify-center">
+              Get Early Access
             </a>
           )}
         </div>

@@ -66,4 +66,43 @@ Partner signup forms should collect:
 
 ---
 
-*Last updated: December 31, 2025*
+## Content Rules (NEVER VIOLATE)
+
+### Navigation
+- **Header nav**: Core pages only (Features, How It Works, Blog, Partners, Contact)
+- **Footer**: All pages including tools, comparisons, resources
+- **NEVER** duplicate links in header (no double Partner/Partner Program)
+
+### Claims & Data
+- **NEVER** fabricate ratings, review counts, or statistics
+- **NEVER** claim features/trials that don't exist
+- **NEVER** invent AI model versions (GPT-5, Claude 4, etc.)
+- **NEVER** use unattributed testimonials (no "Anonymous Shopify merchant")
+- If LocaleFlow isn't on Shopify App Store yet, don't link there
+
+### Pre-Launch State (CURRENT STATUS)
+Until LocaleFlow is live on Shopify App Store:
+- No star ratings or review counts for LocaleFlow
+- No "free trial" claims
+- CTAs should be "Get Early Access" or "Join Waitlist"
+- Link to `/partners#partner-form`, not app store
+- Display "Coming Soon" or "Full metaobject support" instead of ratings
+
+### Competitor Data
+- Only use verifiable data from actual app store listings
+- Include date when data was last verified
+- Mark uncertain data with "~" or "approx"
+- Handle null/missing ratings gracefully (display "N/A")
+
+### CTA Patterns
+**Pre-launch (now):**
+- Text: "Be first to try LocaleFlow when we launch."
+- Button: "Get Early Access" → `/partners#partner-form`
+
+**Post-launch (future):**
+- Text: "Start your 7-day free trial..."
+- Button: "Start Free Trial" → `https://apps.shopify.com/localeflow`
+
+---
+
+*Last updated: January 2, 2026*

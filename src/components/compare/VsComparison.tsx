@@ -116,13 +116,13 @@ export function VsComparison({ localeflow, competitor }: VsComparisonProps) {
             </tr>
             <FeatureRow
               label="Rating"
-              localeflowValue={localeflow.rating ? `${localeflow.rating.toFixed(1)} stars` : 'N/A'}
+              localeflowValue={localeflow.rating ? `${localeflow.rating.toFixed(1)} stars` : 'Coming soon'}
               competitorValue={competitor.rating ? `${competitor.rating.toFixed(1)} stars` : 'N/A'}
             />
             <FeatureRow
               label="Reviews"
-              localeflowValue={`${localeflow.reviews}+`}
-              competitorValue={`${competitor.reviews.toLocaleString()}+`}
+              localeflowValue={localeflow.reviews > 0 ? `${localeflow.reviews.toLocaleString()}+` : 'Coming soon'}
+              competitorValue={competitor.reviews > 0 ? `${competitor.reviews.toLocaleString()}+` : 'N/A'}
             />
           </tbody>
         </table>
@@ -157,12 +157,12 @@ export function VsComparison({ localeflow, competitor }: VsComparisonProps) {
       {/* CTA */}
       <div className="text-center pt-4">
         <Button size="lg" asChild>
-          <a href="https://apps.shopify.com/localeflow" target="_blank" rel="noopener noreferrer">
-            Try LocaleFlow Free
+          <a href="/partners#partner-form">
+            Get Early Access
             <ArrowRight className="w-5 h-5 ml-2" />
           </a>
         </Button>
-        <p className="text-sm text-gray-500 mt-3">7-day free trial. No credit card required.</p>
+        <p className="text-sm text-gray-500 mt-3">Be first to try LocaleFlow when we launch.</p>
       </div>
     </div>
   );
