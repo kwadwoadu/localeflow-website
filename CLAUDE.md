@@ -103,6 +103,42 @@ Until LocaleFlow is live on Shopify App Store:
 - Text: "Start your 7-day free trial..."
 - Button: "Start Free Trial" → `https://apps.shopify.com/localeflow`
 
+### Footer Link Registry (NEVER REMOVE)
+All these links MUST remain in Footer.astro. Protected by `.claude/hooks/footer-protection.sh`.
+
+**Comparison Pages:**
+- /compare
+- /roi-calculator
+- /compare/hextom
+- /compare/t-lab
+- /compare/transtore
+- /compare/langwill
+- /compare/ciwi
+- /compare/locales-ai
+- /compare/vt-labs
+- /compare/liquid-translator
+
+**Blog vs Posts:**
+- /blog/localeflow-vs-weglot
+- /blog/localeflow-vs-langify
+- /blog/localeflow-vs-transcy
+- /blog/localeflow-vs-translate-and-adapt
+
+When adding new comparison pages or vs blog posts, ALWAYS add to footer too.
+
+---
+
+## Hook System
+
+LocaleFlow website has automated hooks matching Signkit's pattern:
+
+**Location:** `.claude/settings.local.json`
+
+**Active Hooks:**
+| Hook | Trigger | Purpose |
+|------|---------|---------|
+| footer-protection.sh | Edit/Write | Warns when Footer.astro edits remove required links |
+
 ---
 
 *Last updated: January 2, 2026*
