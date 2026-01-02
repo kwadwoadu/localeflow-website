@@ -70,61 +70,53 @@ Partner signup forms should collect:
 
 ### Navigation
 - **Header nav**: Core pages only (Features, How It Works, Blog, Partners, Contact)
-- **Footer**: All pages including tools, comparisons, resources
+- **Footer**: Cleaner 4-column layout (Brand, Product, Compare, Company)
 - **NEVER** duplicate links in header (no double Partner/Partner Program)
 
 ### Claims & Data
 - **NEVER** fabricate ratings, review counts, or statistics
-- **NEVER** claim features/trials that don't exist
+- **NEVER** claim features that don't exist
 - **NEVER** invent AI model versions (GPT-5, Claude 4, etc.)
 - **NEVER** use unattributed testimonials (no "Anonymous Shopify merchant")
-- If LocaleFlow isn't on Shopify App Store yet, don't link there
+- **NEVER** compare reviews/ratings when we have few or none - focus on features
 
-### Pre-Launch State (CURRENT STATUS)
-Until LocaleFlow is live on Shopify App Store:
-- No star ratings or review counts for LocaleFlow
-- No "free trial" claims
-- CTAs should be "Get Early Access" or "Join Waitlist"
-- Link to `/partners#partner-form`, not app store
-- Display "Coming Soon" or "Full metaobject support" instead of ratings
+### Post-Launch State (CURRENT STATUS)
+LocaleFlow is NOW LIVE on Shopify App Store:
+- **App Store URL**: https://apps.shopify.com/locale-flow
+- **CTA Text**: "Start translating"
+- **CTA Target**: App store link for regular users
+- Partner program is for agency partners only, not main CTA
+- **NEVER** show "Coming Soon" or fake review counts
+- Focus on FEATURES, not social proof until we have reviews
 
 ### Competitor Data
 - Only use verifiable data from actual app store listings
 - Include date when data was last verified
 - Mark uncertain data with "~" or "approx"
 - Handle null/missing ratings gracefully (display "N/A")
+- **NEVER** compare our reviews to competitors when we have few/none
 
 ### CTA Patterns
-**Pre-launch (now):**
-- Text: "Be first to try LocaleFlow when we launch."
-- Button: "Get Early Access" → `/partners#partner-form`
+**Regular Users:**
+- Text: "Install LocaleFlow from the Shopify App Store and start translating today."
+- Button: "Start translating" -> `https://apps.shopify.com/locale-flow`
 
-**Post-launch (future):**
-- Text: "Start your 7-day free trial..."
-- Button: "Start Free Trial" → `https://apps.shopify.com/localeflow`
+**Partners/Agencies:**
+- Text: "Join our partner program for revenue share..."
+- Button: "Become a Partner" -> `/partners#partner-form`
 
-### Footer Link Registry (NEVER REMOVE)
-All these links MUST remain in Footer.astro. Protected by `.claude/hooks/footer-protection.sh`.
+### Footer Link Registry (Core Links)
+Protected by `.claude/hooks/footer-protection.sh`. Simplified post-launch.
 
-**Comparison Pages:**
+**Required Links:**
 - /compare
 - /roi-calculator
-- /compare/hextom
-- /compare/t-lab
-- /compare/transtore
-- /compare/langwill
-- /compare/ciwi
-- /compare/locales-ai
-- /compare/vt-labs
-- /compare/liquid-translator
+- /blog
+- /partners
+- /privacy
+- /terms
 
-**Blog vs Posts:**
-- /blog/localeflow-vs-weglot
-- /blog/localeflow-vs-langify
-- /blog/localeflow-vs-transcy
-- /blog/localeflow-vs-translate-and-adapt
-
-When adding new comparison pages or vs blog posts, ALWAYS add to footer too.
+Individual comparison pages are linked FROM /compare index, not footer.
 
 ---
 
@@ -146,13 +138,13 @@ LocaleFlow website has automated hooks matching Signkit's pattern:
 
 | When You See | Do This |
 |--------------|---------|
-| Creating `/compare/*.astro` | ALSO add link to Footer.astro Resources section |
-| Creating `/blog/*-vs-*.md` | ALSO add link to Footer.astro Resources section |
+| Creating `/compare/*.astro` | Add to /compare index page's grid |
+| Creating `/blog/*-vs-*.md` | Normal blog post, no special footer handling needed |
 | Any rating/review claim | Verify source or remove - never fabricate |
-| "Start Free Trial" CTA | Change to "Get Early Access" (pre-launch) |
-| Link to apps.shopify.com | Change to /partners#partner-form |
-| Editing Footer.astro | Hook will BLOCK if required links removed |
-| Content with claims | Check against Content Rules above |
+| "Get Early Access" CTA | Change to "Start translating" -> app store |
+| Pre-launch messaging | Update to post-launch messaging |
+| Editing Footer.astro | Hook will BLOCK if core links removed |
+| Review/rating comparisons | Remove if we have few reviews - focus on features |
 
 ---
 

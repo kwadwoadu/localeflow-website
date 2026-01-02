@@ -34,16 +34,6 @@ function FeatureCell({ value }: { value: boolean | string | 'partial' | 'add-on'
   return <span className="text-sm text-gray-700">{value}</span>;
 }
 
-function RatingStars({ rating }: { rating: number | null }) {
-  if (rating === null) return <span className="text-sm text-gray-400">N/A</span>;
-  return (
-    <div className="flex items-center gap-1">
-      <span className="text-yellow-500">★</span>
-      <span className="text-sm font-medium text-gray-700">{rating.toFixed(1)}</span>
-    </div>
-  );
-}
-
 export function ComparisonTable({ competitors, localeflow }: ComparisonTableProps) {
   const allApps = [localeflow, ...competitors];
 
@@ -62,10 +52,7 @@ export function ComparisonTable({ competitors, localeflow }: ComparisonTableProp
                   idx === 0 ? 'bg-primary-50 text-primary-700' : 'bg-gray-50 text-gray-700'
                 }`}
               >
-                <div className="flex flex-col items-center gap-1">
-                  <span>{app.name}</span>
-                  <RatingStars rating={app.rating} />
-                </div>
+                <span>{app.name}</span>
               </th>
             ))}
           </tr>
@@ -157,20 +144,6 @@ export function ComparisonTable({ competitors, localeflow }: ComparisonTableProp
             ))}
           </tr>
 
-          {/* Reviews Section */}
-          <tr className="bg-gray-50">
-            <td colSpan={allApps.length + 1} className="py-3 px-4 font-semibold text-gray-700 text-sm uppercase tracking-wider">
-              Social Proof
-            </td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50">
-            <td className="py-3 px-4 text-gray-700 sticky left-0 bg-white">Reviews</td>
-            {allApps.map((app, idx) => (
-              <td key={app.id} className={`text-center py-3 px-4 ${idx === 0 ? 'bg-primary-50/50' : ''}`}>
-                <span className="text-sm text-gray-600">{app.reviews.toLocaleString()}+</span>
-              </td>
-            ))}
-          </tr>
         </tbody>
       </table>
     </div>

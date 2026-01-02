@@ -107,23 +107,6 @@ export function VsComparison({ localeflow, competitor }: VsComparisonProps) {
             <FeatureRow label="Metafields" localeflowValue={localeflow.features.metafields} competitorValue={competitor.features.metafields} />
             <FeatureRow label="Custom Prompts" localeflowValue={localeflow.features.customPrompts} competitorValue={competitor.features.customPrompts} />
             <FeatureRow label="Term Blacklist" localeflowValue={localeflow.features.termBlacklist} competitorValue={competitor.features.termBlacklist} />
-
-            {/* Social Proof */}
-            <tr className="bg-gray-50/50">
-              <td colSpan={3} className="py-2 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                Social Proof
-              </td>
-            </tr>
-            <FeatureRow
-              label="Rating"
-              localeflowValue={localeflow.rating ? `${localeflow.rating.toFixed(1)} stars` : 'Coming soon'}
-              competitorValue={competitor.rating ? `${competitor.rating.toFixed(1)} stars` : 'N/A'}
-            />
-            <FeatureRow
-              label="Reviews"
-              localeflowValue={localeflow.reviews > 0 ? `${localeflow.reviews.toLocaleString()}+` : 'Coming soon'}
-              competitorValue={competitor.reviews > 0 ? `${competitor.reviews.toLocaleString()}+` : 'N/A'}
-            />
           </tbody>
         </table>
       </div>
@@ -157,12 +140,12 @@ export function VsComparison({ localeflow, competitor }: VsComparisonProps) {
       {/* CTA */}
       <div className="text-center pt-4">
         <Button size="lg" asChild>
-          <a href="/partners#partner-form">
-            Get Early Access
+          <a href="https://apps.shopify.com/locale-flow">
+            Start translating
             <ArrowRight className="w-5 h-5 ml-2" />
           </a>
         </Button>
-        <p className="text-sm text-gray-500 mt-3">Be first to try LocaleFlow when we launch.</p>
+        <p className="text-sm text-gray-500 mt-3">Install LocaleFlow from the Shopify App Store.</p>
       </div>
     </div>
   );

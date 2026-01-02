@@ -23,22 +23,15 @@ elif [[ "$TOOL_NAME" == "Edit" ]]; then
     NEW_STRING=$(echo "$INPUT" | jq -r '.tool_input.new_string // empty')
 fi
 
-# Required links that must exist in footer
+# Required links that must exist in footer (simplified list post-launch)
+# Individual compare pages are linked from /compare index, not footer
 REQUIRED_LINKS=(
     "/compare"
     "/roi-calculator"
-    "/compare/hextom"
-    "/compare/t-lab"
-    "/compare/transtore"
-    "/compare/langwill"
-    "/compare/ciwi"
-    "/compare/locales-ai"
-    "/compare/vt-labs"
-    "/compare/liquid-translator"
-    "/blog/localeflow-vs-weglot"
-    "/blog/localeflow-vs-langify"
-    "/blog/localeflow-vs-transcy"
-    "/blog/localeflow-vs-translate-and-adapt"
+    "/blog"
+    "/partners"
+    "/privacy"
+    "/terms"
 )
 
 BLOCKED=false
@@ -66,8 +59,8 @@ fi
 
 if [[ "$BLOCKED" == "true" ]]; then
     echo "" >&2
-    echo "Footer.astro is protected. All 14 required links must remain." >&2
-    echo "See CLAUDE.md Footer Link Registry for the full list." >&2
+    echo "Footer.astro is protected. Core links must remain." >&2
+    echo "Required: /compare, /roi-calculator, /blog, /partners, /privacy, /terms" >&2
     exit 2
 fi
 

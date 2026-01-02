@@ -39,8 +39,8 @@ export const localflow: Competitor = {
   name: 'LocaleFlow',
   slug: 'localeflow',
   tagline: 'AI-powered Shopify translation that syncs automatically',
-  appStoreUrl: '', // Not yet on Shopify App Store
-  rating: null, // Not yet on Shopify App Store
+  appStoreUrl: 'https://apps.shopify.com/locale-flow',
+  rating: null, // New app - reviews building
   reviews: 0,
   pricing: {
     base: '$150/mo',
